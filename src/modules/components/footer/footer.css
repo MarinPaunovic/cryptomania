@@ -1,0 +1,45 @@
+.footer {
+    background-color: rgb(24, 24, 24);
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    min-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 85rem;
+    color: rgb(215, 215, 215);
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
+}
+
+.footer-title {
+    max-width: 30rem;
+    grid-column-start: span 2;
+    grid-column-end: span 2;
+}
+
+.footer-title-title {
+    align-items: center;
+}
+
+.footer-title-image {
+    width: calc(var(--font-size-title) * 1.5);
+}
+
+.footer-title-name {
+    font-size: calc(var(--font-size-title));
+    font-family: cursive;
+}
+
+.footer-title-copyright {
+    margin-top: 5rem;
+}
+.footer-title-description {
+    text-align: left;
+    font-size: var(--font-size-content);
+    margin-top: 0.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+}

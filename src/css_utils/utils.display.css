@@ -1,0 +1,21 @@
+.fc {
+    display: flex;
+    flex-direction: column;
+}
+
+.fr {
+    display: flex;
+    flex-direction: row;
+}
+
+.f {
+    display: flex;
+}
+
+.jcsbetween {
+    justify-content: space-between;
+}
+
+.g {
+    display: grid;
+}

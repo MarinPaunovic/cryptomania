@@ -1,0 +1,8 @@
+.darkTheme {
+  background-color: rgb(39, 39, 39);
+  color: whitesmoke;
+}
+.lightTheme {
+  background-color: rgb(250, 250, 250);
+  color: black;
+}

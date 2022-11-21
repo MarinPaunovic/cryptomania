@@ -1,0 +1,50 @@
+.coin-description {
+  z-index: 1;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: sticky;
+  top: -0.01rem;
+  left: 0rem;
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  background-color: white;
+  list-style: none;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-bottom: 0.1rem solid lightgray;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coin-description-price {
+  display: flex;
+  justify-self: end;
+  width: fit-content;
+}
+
+.coin-description-price-wrapper {
+  grid-template-columns: 40% 15% 15% 15% 15%;
+  justify-content: end;
+}
+
+.coin-description-price:hover {
+  cursor: pointer;
+  color: rgb(99, 99, 99);
+}
+
+.coin-description-main {
+  width: fit-content;
+}
+
+.coin-description-main:hover {
+  cursor: pointer;
+  color: rgb(99, 99, 99);
+}
+
+.coin-description-wrapper {
+  grid-template-columns: 10% auto;
+}

@@ -1,0 +1,55 @@
+.coin-list-container {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+.coin-list-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  background-color: white;
+  list-style: none;
+  align-items: center;
+}
+
+.coin-list-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 0.6rem;
+}
+.coin-list-name {
+  font-weight: 550;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.coin-list-price {
+  text-align: end;
+}
+
+.coin-list-image {
+  object-fit: cover;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.coin-list-description-wrapper {
+  align-items: center;
+  grid-template-columns: 2rem auto;
+  gap: 0.5rem;
+  min-width: 16rem;
+  border-bottom: var(--border-split);
+}
+
+.coin-list-price-wrapper {
+  min-height: 100%;
+  align-items: center;
+  list-style: none;
+  grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr;
+  border-bottom: var(--border-split);
+  padding-right: 1.5rem;
+}

@@ -1,0 +1,14 @@
+.registerButton{
+    font-size:var(--font-size-button);
+    padding:var(--padding-button);
+    background-color: var(--color-cryptomania);
+    color:#ffff;
+    border-radius: 0.4rem;
+    border: none;
+    margin-right: var(--space-between);
+}
+
+.registerButton:hover{
+    cursor:pointer;
+    }
+    

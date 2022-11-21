@@ -1,0 +1,13 @@
+.loginButton{
+    height: fit-content;
+    margin-right:var(--space-between);
+    font-size: var(--font-size-button);
+    padding:var(--padding-button);
+    border:none;
+    background-color: transparent;
+    color:#333
+}
+
+.loginButton:hover{
+cursor:pointer;
+}
