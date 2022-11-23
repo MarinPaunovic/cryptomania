@@ -63,7 +63,7 @@ export const CoinsList = () => {
                 <div className="coin-list-name-wrapper">
                   <img className="coin-list-image" src={item.image} />
                   <div className="coin-list-name f">
-                    <span style={{ width: 'max-content' }}>{item.name}</span>
+                    <span>{item.name}</span>
                     <span>{item.symbol.toUpperCase()}</span>
                   </div>
                 </div>
