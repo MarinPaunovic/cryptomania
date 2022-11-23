@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import themeSlice from './theme/themeSlice';
+import { persistStore } from 'redux-persist';
+import rootReducer from './rootReducer';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 export interface RootState {
-    theme: { theme: string };
+  theme: { theme: string };
 }
 
-const store = configureStore({
-    reducer: {
-        theme: themeSlice,
-    },
-});
+const middlewares = [thunk, logger];
 
-export default store;
+export const store = configureStore({
+  reducer: rootReducer,
+  middleware: middlewares,
+});
+export const persistor = persistStore(store);
