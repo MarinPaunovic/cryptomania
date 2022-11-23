@@ -2,7 +2,7 @@
   z-index: 1;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   position: sticky;
-  top: -0.01rem;
+  top: 0rem;
   left: 0rem;
   display: grid;
   grid-template-columns: 1.5fr 3fr;
@@ -10,7 +10,6 @@
   list-style: none;
   align-items: center;
   padding-bottom: 1rem;
-  padding-left: 0.5rem;
   border-bottom: 0.1rem solid lightgray;
   margin-top: 1rem;
   padding-top: 1rem;
@@ -18,6 +17,7 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
+  overflow-x: auto;
 }
 
 .coin-description-price {
@@ -27,7 +27,7 @@
 }
 
 .coin-description-price-wrapper {
-  grid-template-columns: 40% 15% 15% 15% 15%;
+  grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr;
   justify-content: end;
 }
 
@@ -46,5 +46,7 @@
 }
 
 .coin-description-wrapper {
-  grid-template-columns: 10% auto;
+  gap: 0.5rem;
+  grid-template-columns: 2rem auto;
+  min-width: 12rem;
 }

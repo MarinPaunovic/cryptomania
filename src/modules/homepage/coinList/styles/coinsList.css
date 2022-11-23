@@ -20,6 +20,7 @@
   align-items: center;
   gap: 1rem;
   margin-block: 0.6rem;
+  padding-block: 0.6rem;
 }
 .coin-list-name {
   font-weight: 550;
@@ -41,7 +42,7 @@
   align-items: center;
   grid-template-columns: 2rem auto;
   gap: 0.5rem;
-  min-width: 16rem;
+  min-width: 12rem;
   border-bottom: var(--border-split);
 }
 

@@ -73,17 +73,18 @@
 }
 
 @media only screen and (max-width: 940px) {
-  .coin-list-description-wrapper {
+  .coin-list-description-wrapper,
+  .coin-description-wrapper {
     position: sticky;
     left: 0px;
-    background-color: pink;
   }
   .coin-list-wrapper {
-    background-color: blue;
     width: fit-content;
   }
+  .coin-list-container {
+    margin-inline: auto;
+  }
   .coin-list-name {
-    background-color: red;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -91,11 +92,11 @@
     font-size: calc(var(--font-size-content) * 0.7);
     opacity: 0.6;
   }
-  .coin-list-price-wrapper {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .coin-list-price-wrapper {
+
+  .coin-list-price-wrapper,
+  .coin-description-price-wrapper {
     min-width: 470px;
+    grid-template-columns: repeat(4, 1fr);
   }
   .coin-description.main-align {
     max-width: 45rem;
@@ -111,8 +112,41 @@
   }
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 780px) {
+  .page-header-wrapper,
+  .coin-list-container.main-align,
+  .footer-wrapper,
+  .coin-description.main-align {
+    max-width: 37rem;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .page-header-wrapper,
+  .coin-list-container.main-align,
+  .footer-wrapper,
+  .coin-description.main-align {
+    max-width: 30rem;
+  }
   .page-header-buttons {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .page-header-wrapper,
+  .coin-list-container.main-align,
+  .footer-wrapper,
+  .coin-description.main-align {
+    max-width: 25rem;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .page-header-wrapper,
+  .coin-list-container.main-align,
+  .footer-wrapper,
+  .coin-description.main-align {
+    max-width: 22rem;
   }
 }

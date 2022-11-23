@@ -5,7 +5,7 @@ export const Description = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   return (
     <div className={`coin-description main-align ${theme} `}>
-      <div className="coin-description-wrapper g">
+      <div className={`coin-description-wrapper g ${theme}`}>
         <span className="coin-description-main">#</span>
         <span className="coin-description-main">Coin</span>
       </div>
