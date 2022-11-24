@@ -6,6 +6,9 @@
   overflow-x: auto;
   box-sizing: border-box;
 }
+.coin-list-container::-webkit-scrollbar {
+  display: none;
+}
 
 .coin-list-wrapper {
   display: grid;

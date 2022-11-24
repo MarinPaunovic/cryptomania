@@ -19,6 +19,9 @@
   margin-right: auto;
   overflow-x: auto;
 }
+.coin-description::-webkit-scrollbar {
+  display: none;
+}
 
 .coin-description-price {
   display: flex;
