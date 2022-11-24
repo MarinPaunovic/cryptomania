@@ -4,6 +4,7 @@ import { RootState } from 'modules/redux/store';
 import { Navbar } from '../modules/components/navbar/navbar';
 import { useSelector } from 'react-redux';
 import { Footer } from 'modules/components/footer/footer';
+import { ScrollSync } from 'react-scroll-sync';
 
 export const Homepage = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -11,8 +12,12 @@ export const Homepage = () => {
   return (
     <div className={theme}>
       <Navbar />
-      <Description />
-      <CoinsList />
+      <ScrollSync>
+        <>
+          <Description />
+          <CoinsList />
+        </>
+      </ScrollSync>
       <Footer />
     </div>
   );
