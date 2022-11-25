@@ -1,7 +1,5 @@
 .dropdown-menu {
   display: none;
-  background-color: rgb(44, 44, 44);
-  color: white;
   position: absolute;
   top: 0px;
   transition: 0.5s ease-in-out;
@@ -25,6 +23,5 @@
   margin-right: auto;
   border-bottom: var(--border-split);
   text-decoration: none;
-  color: whitesmoke;
   text-align: end;
 }
