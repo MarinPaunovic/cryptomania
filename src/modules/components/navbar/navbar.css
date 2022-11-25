@@ -1,56 +1,97 @@
 .page-header {
-    border-bottom: var(--border-split);
+  border-bottom: var(--border-split);
 }
 .page-header-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 70px;
-    align-items: center;
-    box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 70px;
+  align-items: center;
+  box-sizing: border-box;
+  /* position: relative; */
 }
+
 .page-header-title {
-    font-family: cursive;
-    color: black;
-    font-size: var(--font-size-title);
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
+  font-family: cursive;
+  color: black;
+  font-size: var(--font-size-title);
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
 }
+
+.page-header-button-small {
+  display: none;
+  gap: 0.45rem;
+  flex-direction: column;
+}
+.page-header-button-small span {
+  position: absolute;
+  transition: 0.25s ease-in-out;
+  padding-block: 0.8px;
+  padding-inline: 13px;
+  background-color: rgb(250, 250, 250);
+}
+.page-header-button-small :nth-child(1) {
+  top: -6px;
+  right: 0px;
+}
+.page-header-button-small :nth-child(2) {
+  top: 0px;
+  right: 0px;
+}
+.page-header-button-small :nth-child(3) {
+  right: 0px;
+  top: 6px;
+}
+
+.page-header-button-small.open :nth-child(1) {
+  transform: rotate(45deg);
+  top: 0px;
+}
+.page-header-button-small.open :nth-child(2) {
+  opacity: 0;
+  width: 0%;
+}
+.page-header-button-small.open :nth-child(3) {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+
 .page-header-title:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .page-header-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .page-header-title-img {
-    height: var(--font-size-title);
-    filter: brightness(135%);
+  height: var(--font-size-title);
+  filter: brightness(135%);
 }
 .page-header-search {
-    background-color: rgb(235, 235, 235);
-    color: rgba(156, 163, 175);
-    padding: 0.75rem;
-    display: flex;
-    gap: 0.5rem;
-    border-radius: 0.5rem;
-    padding-right: 3rem;
+  background-color: rgb(235, 235, 235);
+  color: rgba(156, 163, 175);
+  padding: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding-right: 3rem;
 }
 .page-header-search:hover {
-    cursor: text;
-    color: gray;
+  cursor: text;
+  color: gray;
 }
 
 .page-header-theme {
-    margin-right: 0.5rem;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    justify-content: center;
+  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
 }
 .page-header-theme:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

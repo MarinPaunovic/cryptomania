@@ -5,11 +5,13 @@ import { redirect, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'modules/redux/theme/themeSlice';
 import { RootState } from 'modules/redux/store';
+import { useState } from 'react';
 
 export const Navbar = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [menuToggle, setMenuToggle] = useState('closed');
 
   return (
     <header className={`page-header ${theme}`}>
@@ -26,6 +28,24 @@ export const Navbar = () => {
             src={require('images/cryptomania.jpg')}
           />
           Cryptomania
+        </div>
+        <div style={{ position: 'relative' }}>
+          <div
+            className={`page-header-button-small ${
+              menuToggle === 'open' && 'open'
+            }`}
+            onClick={() => {
+              if (menuToggle == 'closed') {
+                setMenuToggle('open');
+                return;
+              }
+              setMenuToggle('closed');
+            }}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
         <div className="page-header-buttons">
           <CustomButton className={`loginButton ${theme}`} title="Login" />
