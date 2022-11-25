@@ -131,8 +131,34 @@
   .page-header-buttons {
     display: none;
   }
+  .page-header-theme {
+    display: flex;
+  }
+  .page-header {
+    position: relative;
+  }
+  .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
   .page-header-button-small {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .page-header-button-small.closed {
+    right: 0px;
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+  }
+
+  .page-header-button-small.open {
+    right: 15px;
+    padding-right: 15px;
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
   }
 }
 

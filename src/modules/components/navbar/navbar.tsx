@@ -1,11 +1,12 @@
 import { faMoon, faSearch, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CustomButton } from '../customButton/customButton';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'modules/redux/theme/themeSlice';
 import { RootState } from 'modules/redux/store';
 import { useState } from 'react';
+import { DropdownMenu } from './dropdownMenu';
 
 export const Navbar = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
@@ -29,24 +30,30 @@ export const Navbar = () => {
           />
           Cryptomania
         </div>
-        <div style={{ position: 'relative' }}>
+        {menuToggle === 'closed' && (
           <div
-            className={`page-header-button-small ${
-              menuToggle === 'open' && 'open'
-            }`}
+            className={`page-header-button-small ${menuToggle}`}
             onClick={() => {
-              if (menuToggle == 'closed') {
-                setMenuToggle('open');
-                return;
-              }
-              setMenuToggle('closed');
+              setMenuToggle('open');
             }}
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span
+              className={`${
+                theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
+              }`}
+            ></span>
+            <span
+              className={`${
+                theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
+              }`}
+            ></span>
+            <span
+              className={`${
+                theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'
+              }`}
+            ></span>
           </div>
-        </div>
+        )}
         <div className="page-header-buttons">
           <CustomButton className={`loginButton ${theme}`} title="Login" />
           <CustomButton className="registerButton" title="Register" />
@@ -75,6 +82,25 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+      {menuToggle === 'open' && (
+        <div
+          className={`page-header-button-small ${menuToggle}`}
+          onClick={() => {
+            setMenuToggle('closed');
+          }}
+        >
+          <span
+            className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
+          ></span>
+          <span
+            className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
+          ></span>
+          <span
+            className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
+          ></span>
+        </div>
+      )}
+      <DropdownMenu menuToggle={menuToggle} />
     </header>
   );
 };
