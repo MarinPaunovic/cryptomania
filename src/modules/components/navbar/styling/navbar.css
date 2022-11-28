@@ -30,11 +30,10 @@
 
 .page-header-button-small span {
   position: absolute;
-  transition: 0.25s ease-in-out;
   height: 2px;
   width: 25px;
   border-radius: 15px;
-  z-index: 3;
+  z-index: 1;
 }
 .page-header-button-small :nth-child(1) {
   top: -6px;
@@ -95,6 +94,11 @@
   display: flex;
   justify-content: center;
 }
+
+.page-header-theme.small {
+  display: none;
+}
+
 .page-header-theme:hover {
   cursor: pointer;
 }

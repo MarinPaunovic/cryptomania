@@ -1,4 +1,3 @@
 @import './footer/footer.css';
-@import './navbar/navbar.css';
-@import './navbar/dropdownMenu.css';
+@import './navbar/index.css';
 @import './userProfile/userProfile.css';

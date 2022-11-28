@@ -1,15 +1,23 @@
 import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { HamburgerIcon, Props } from './hamburgerIcon';
 
-export const DropdownMenu = (props: { menuToggle: string }) => {
+export const DropdownMenu: React.FC<Props> = ({
+  menuToggle,
+  setMenuToggle,
+}) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
-  const { menuToggle } = props;
   return (
     <div
-      className={`dropdown-menu ${theme}`}
+      className={`dropdown-menu open ${theme}`}
       style={menuToggle == 'open' ? { right: '0px' } : { right: '-215px' }}
     >
+      <HamburgerIcon
+        theme={theme}
+        menuToggle={menuToggle}
+        setMenuToggle={setMenuToggle}
+      />
       <Link
         to={'/login'}
         style={

@@ -2,8 +2,8 @@
   z-index: 1;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   position: sticky;
-  top: 0rem;
-  left: 0rem;
+  top: 0px;
+  left: 0px;
   display: grid;
   grid-template-columns: 1.5fr 3fr;
   background-color: white;
