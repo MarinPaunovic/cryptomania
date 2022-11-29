@@ -8,10 +8,10 @@ export const Login = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(username, email, password);
   };
   return (
     <div className={`login-container ${theme} fc`}>
@@ -25,22 +25,29 @@ export const Login = () => {
         >
           <div>
             <label htmlFor="username">Username</label>
-            <input id="username" type={'text'} className={theme}></input>
+            <input
+              id="username"
+              type={'text'}
+              className={theme}
+              onChange={(e) => setUsername(e.target.value)}
+            ></input>
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input id="email" type={'text'} className={theme}></input>
+            <input
+              id="email"
+              type={'text'}
+              className={theme}
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
           </div>
           <div>
             <label htmlFor="password">Password</label>
-            <input id="password" type={'password'} className={theme}></input>
-          </div>
-          <div>
-            <label htmlFor="confirmPassword">Confirm password</label>
             <input
-              id="confirmPassword"
+              id="password"
               type={'password'}
               className={theme}
+              onChange={(e) => setPassword(e.target.value)}
             ></input>
           </div>
           <div className="login-to-register-wrapper f">
