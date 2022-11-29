@@ -104,3 +104,11 @@
 .page-header-theme:hover {
   cursor: pointer;
 }
+
+.login-button-navbar {
+  font-size: var(--font-size-button);
+  font-family: var(--font-family-content);
+  padding: calc(var(--padding-button) * 1.5);
+  margin-right: 15px;
+  border: none;
+}

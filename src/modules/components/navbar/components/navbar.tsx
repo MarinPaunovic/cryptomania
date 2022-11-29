@@ -19,7 +19,6 @@ export const Navbar = ({
   isRegister: boolean;
   isHomepage: boolean;
 }) => {
-  console.log(isLogin);
   const theme = useSelector((state: RootState) => state.theme.theme);
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
@@ -50,7 +49,7 @@ export const Navbar = ({
         )}
         <div className="page-header-buttons">
           {(isRegister || isHomepage) && (
-            <Link to="/login" className={`loginButton ${theme}`}>
+            <Link to="/login" className={`login-button-navbar ${theme} `}>
               Login
             </Link>
           )}
@@ -61,10 +60,7 @@ export const Navbar = ({
           )}
           <ThemeToggle className="bigTheme" />
           {!isRegister && !isLogin && (
-            <div
-              className="page-header-search"
-              onClick={() => console.log('traži')}
-            >
+            <div className="page-header-search">
               <FontAwesomeIcon icon={faSearch} />
               <span>Search</span>
             </div>

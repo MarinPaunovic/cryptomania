@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 export const ThemeToggle = ({ className }: { className: string }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch();
-  console.log(className);
   return (
     <div
       className={`page-header-theme ${className}`}
