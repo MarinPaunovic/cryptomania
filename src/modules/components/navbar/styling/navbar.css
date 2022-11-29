@@ -1,11 +1,13 @@
 .page-header {
   border-bottom: var(--border-split);
+  box-sizing: border-box;
+  height: 70px;
 }
 .page-header-wrapper {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  min-height: 70px;
+  height: 70px;
   align-items: center;
   position: relative;
 }
@@ -95,7 +97,7 @@
   justify-content: center;
 }
 
-.page-header-theme.small {
+.page-header-theme.smallTheme {
   display: none;
 }
 

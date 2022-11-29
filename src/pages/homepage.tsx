@@ -14,7 +14,7 @@ export const Homepage = () => {
       className={theme}
       // style={{ overflowX: 'hidden' }}
     >
-      <Navbar />
+      <Navbar isRegister={false} isLogin={false} isHomepage={true} />
       <ScrollSync>
         <>
           <Description />

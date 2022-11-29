@@ -5,5 +5,9 @@ interface CustomButton {
 
 export const CustomButton = (props: CustomButton) => {
   const { className, title } = props;
-  return <button className={className}>{title}</button>;
+  return (
+    <button className={className} onClick={() => console.log(title)}>
+      {title}
+    </button>
+  );
 };

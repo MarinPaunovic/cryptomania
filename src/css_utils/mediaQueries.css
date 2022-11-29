@@ -131,9 +131,9 @@
   .page-header-buttons {
     display: none;
   }
-  .page-header-theme.small {
+  .page-header-theme.smallTheme {
     position: absolute;
-    right: 30px;
+    right: 40px;
     display: flex;
     top: 28px;
   }

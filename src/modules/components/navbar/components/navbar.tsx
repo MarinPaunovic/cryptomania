@@ -6,10 +6,20 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
 import { useState } from 'react';
 import { DropdownMenu } from './dropdownMenu';
-import { HamburgerIcon } from './hamburgerIcon';
-import { ThemeToggle } from './themeToggle';
+import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
+import { ThemeToggle } from '../../themeToggle/themeToggle';
+import { Link } from 'react-router-dom';
 
-export const Navbar = () => {
+export const Navbar = ({
+  isLogin,
+  isRegister,
+  isHomepage,
+}: {
+  isLogin: boolean;
+  isRegister: boolean;
+  isHomepage: boolean;
+}) => {
+  console.log(isLogin);
   const theme = useSelector((state: RootState) => state.theme.theme);
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
@@ -30,8 +40,8 @@ export const Navbar = () => {
           />
           Cryptomania
         </div>
-        <ThemeToggle className="small" />
-        {menuToggle === 'closed' && (
+        <ThemeToggle className="smallTheme" />
+        {!isRegister && !isLogin && menuToggle === 'closed' && (
           <HamburgerIcon
             menuToggle={menuToggle}
             setMenuToggle={setMenuToggle}
@@ -39,16 +49,26 @@ export const Navbar = () => {
           />
         )}
         <div className="page-header-buttons">
-          <CustomButton className={`loginButton ${theme}`} title="Login" />
-          <CustomButton className="registerButton" title="Register" />
-          <ThemeToggle className="big" />
-          <div
-            className="page-header-search"
-            onClick={() => console.log('traži')}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-            <span>Search</span>
-          </div>
+          {(isRegister || isHomepage) && (
+            <Link to="/login" className={`loginButton ${theme}`}>
+              Login
+            </Link>
+          )}
+          {(isLogin || isHomepage) && (
+            <Link to="/register" className="registerButton">
+              Register
+            </Link>
+          )}
+          <ThemeToggle className="bigTheme" />
+          {!isRegister && !isLogin && (
+            <div
+              className="page-header-search"
+              onClick={() => console.log('traži')}
+            >
+              <FontAwesomeIcon icon={faSearch} />
+              <span>Search</span>
+            </div>
+          )}
         </div>
       </div>
       {menuToggle === 'open' && (

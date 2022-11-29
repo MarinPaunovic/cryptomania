@@ -1,5 +1,13 @@
+import { Register } from 'modules/auth';
+import { Navbar } from 'modules/components';
+
 const RegisterPage = () => {
-  return <div>Register Page</div>;
+  return (
+    <>
+      <Navbar isLogin={false} isRegister={true} isHomepage={false} />
+      <Register />
+    </>
+  );
 };
 
 export default RegisterPage;

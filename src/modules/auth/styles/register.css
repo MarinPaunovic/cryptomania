@@ -1,14 +1,23 @@
-.registerButton{
-    font-size:var(--font-size-button);
-    padding:var(--padding-button);
-    background-color: var(--color-cryptomania);
-    color:#ffff;
-    border-radius: 0.4rem;
-    border: none;
-    margin-right: var(--space-between);
+.register-container {
+  width: 100%;
+  height: calc(100vh - 71px);
 }
 
-.registerButton:hover{
-    cursor:pointer;
-    }
-    
+* {
+  box-sizing: border-box;
+}
+
+.registerButton {
+  font-size: var(--font-size-button);
+  padding: var(--padding-button);
+  font-family: var(--font-family-content);
+  background-color: var(--color-cryptomania);
+  color: #ffff;
+  border-radius: 0.4rem;
+  border: none;
+  margin-right: var(--space-between);
+}
+
+.registerButton:hover {
+  cursor: pointer;
+}

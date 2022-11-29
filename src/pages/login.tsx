@@ -1,5 +1,13 @@
+import { Login } from 'modules/auth';
+import { Navbar } from 'modules/components';
+
 const LoginPage = () => {
-  return <div>Login Page</div>;
+  return (
+    <>
+      <Navbar isLogin={true} isRegister={false} isHomepage={false} />
+      <Login />
+    </>
+  );
 };
 
 export default LoginPage;

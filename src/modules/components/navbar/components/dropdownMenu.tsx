@@ -1,7 +1,7 @@
 import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { HamburgerIcon, Props } from './hamburgerIcon';
+import { HamburgerIcon, Props } from '../../hamburgerIcon/hamburgerIcon';
 
 export const DropdownMenu: React.FC<Props> = ({
   menuToggle,
