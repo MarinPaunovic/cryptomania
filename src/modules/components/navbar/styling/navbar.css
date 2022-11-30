@@ -24,10 +24,11 @@
 
 .page-header-button-small {
   display: none;
-  position: absolute;
+  position: relative;
   min-height: 15px;
   right: 0px;
-  top: 35px;
+  /* top: 35px; */
+  min-width: 25px;
 }
 
 .page-header-button-small span {
@@ -38,16 +39,16 @@
   z-index: 1;
 }
 .page-header-button-small :nth-child(1) {
-  top: -6px;
+  top: 0px;
   right: 0px;
 }
 .page-header-button-small :nth-child(2) {
-  top: 0px;
+  top: 6px;
   right: 0px;
 }
 .page-header-button-small :nth-child(3) {
   right: 0px;
-  top: 6px;
+  top: 12px;
 }
 
 .page-header-button-small.open :nth-child(1) {
@@ -99,6 +100,7 @@
 
 .page-header-theme.smallTheme {
   display: none;
+  align-items: center;
 }
 
 .page-header-theme:hover {

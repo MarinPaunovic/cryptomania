@@ -76,5 +76,11 @@
     "react-app-rewire-postcss": "^3.0.2",
     "react-app-rewired": "^2.1.8",
     "reinstall-node-modules": "^2.0.0"
-  }
+  },
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": [
+    "src"
+  ]
 }

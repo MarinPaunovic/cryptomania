@@ -55,6 +55,15 @@ export const Login = () => {
             <a href="/register">Register</a>
           </div>
           <CustomButton className={`login-button ${theme}`} title="Login" />
+
+          <button className={`login-button google`}>
+            <img
+              className="button-img-google"
+              src={require('images/g-logo.png')}
+              alt="Google icon"
+            />
+            <span> Log in with Google</span>
+          </button>
         </form>
       </div>
     </div>

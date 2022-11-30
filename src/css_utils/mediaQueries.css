@@ -131,11 +131,17 @@
   .page-header-buttons {
     display: none;
   }
-  .page-header-theme.smallTheme {
-    position: absolute;
-    right: 40px;
-    display: flex;
+  .page-header-theme {
     top: 28px;
+    position: relative;
+    right: 40px;
+  }
+  .page-header-theme.smallTheme {
+    position: relative;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
   }
   .page-header {
     position: relative;
@@ -145,13 +151,18 @@
     flex-direction: column;
   }
   .page-header-button-small {
-    display: flex;
+    display: inline-block;
   }
   .page-header-button-small.open {
+    position: absolute;
+    top: 35px;
     right: 15px;
   }
   .dropdown-menu.open {
     padding-top: 5rem;
+  }
+  .login-wrapper {
+    max-width: 30rem;
   }
 }
 
@@ -162,6 +173,14 @@
   .coin-description.main-align {
     max-width: 25rem;
   }
+  .login-wrapper {
+    max-width: 25rem;
+  }
+  .login-wrapper.darkTheme,
+  .login-wrapper.lightTheme {
+    border: none;
+    padding: 0px;
+  }
 }
 
 @media only screen and (max-width: 440px) {
@@ -170,5 +189,13 @@
   .footer-wrapper,
   .coin-description.main-align {
     max-width: 22rem;
+  }
+  .login-wrapper {
+    max-width: 22rem;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .page-header-title {
+    font-size: 1.7em;
   }
 }
