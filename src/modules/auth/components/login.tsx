@@ -1,4 +1,5 @@
 import { CustomButton } from 'modules/components';
+import { singInWithGoogle } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -11,7 +12,7 @@ export const Login = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(username, email, password);
+    console.log(username, email, password, 'SUBMIT SE TRIGGERO');
   };
   return (
     <div className={`login-container ${theme} fc`}>
@@ -54,17 +55,18 @@ export const Login = () => {
             <p>Don't have an account yet?</p>
             <a href="/register">Register</a>
           </div>
-          <CustomButton className={`login-button ${theme}`} title="Login" />
-
+          <CustomButton className={`login-button ${theme}`} title="Login" />{' '}
+        </form>
+        <div className="login-button-google-wrapper f jcc">
           <button className={`login-button google`}>
             <img
               className="button-img-google"
               src={require('images/g-logo.png')}
               alt="Google icon"
             />
-            <span> Log in with Google</span>
+            <span onClick={() => singInWithGoogle()}> Log in with Google</span>
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );

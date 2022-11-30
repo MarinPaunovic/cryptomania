@@ -128,7 +128,9 @@
   cursor: pointer;
   background-color: rgb(255, 20, 20);
 }
-
+.login-button-google-wrapper {
+  margin-top: 1.5rem;
+}
 .login-button.google {
   background-color: rgb(66 133 244);
   border-radius: 0px;
@@ -137,6 +139,7 @@
   align-items: center;
   height: 50px;
 }
+
 .login-button.google:hover {
   cursor: pointer;
   background-color: rgb(49, 119, 233);

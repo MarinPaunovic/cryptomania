@@ -198,4 +198,7 @@
   .page-header-title {
     font-size: 1.7em;
   }
+  .login-wrapper {
+    margin-bottom: 0px;
+  }
 }

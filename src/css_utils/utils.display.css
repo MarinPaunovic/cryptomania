@@ -1,21 +1,25 @@
 .fc {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .fr {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .f {
-    display: flex;
+  display: flex;
 }
 
 .jcsbetween {
-    justify-content: space-between;
+  justify-content: space-between;
+}
+
+.jcc {
+  justify-content: center;
 }
 
 .g {
-    display: grid;
+  display: grid;
 }
