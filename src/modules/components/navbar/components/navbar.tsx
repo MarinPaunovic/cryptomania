@@ -1,6 +1,5 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { CustomButton } from '../../customButton/';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
@@ -9,6 +8,8 @@ import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
 import { Link } from 'react-router-dom';
+import { auth } from 'modules/db/db';
+import { signOut } from 'firebase/auth';
 
 export const Navbar = ({
   isLogin,
@@ -22,6 +23,8 @@ export const Navbar = ({
   const theme = useSelector((state: RootState) => state.theme.theme);
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
+  const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
+  console.log(isLoggedIn);
 
   return (
     <header className={`page-header ${theme}`}>
@@ -48,12 +51,12 @@ export const Navbar = ({
           />
         )}
         <div className="page-header-buttons">
-          {(isRegister || isHomepage) && (
+          {(isRegister || isHomepage) && !isLoggedIn && (
             <Link to="/login" className={`login-button-navbar ${theme} `}>
               Login
             </Link>
           )}
-          {(isLogin || isHomepage) && (
+          {(isLogin || isHomepage) && !isLoggedIn && (
             <Link to="/register" className="registerButton">
               Register
             </Link>
@@ -65,8 +68,18 @@ export const Navbar = ({
               <span>Search</span>
             </div>
           )}
+          {isLoggedIn && (
+            <button
+              onClick={() => {
+                signOut(auth);
+              }}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
+
       {menuToggle === 'open' && (
         <DropdownMenu menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
       )}

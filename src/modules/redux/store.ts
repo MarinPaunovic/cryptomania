@@ -6,6 +6,7 @@ import logger from 'redux-logger';
 
 export interface RootState {
   theme: { theme: string };
+  auth: { auth: boolean };
 }
 
 const middlewares = [thunk, logger];

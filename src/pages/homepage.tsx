@@ -10,10 +10,7 @@ export const Homepage = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
-    <div
-      className={theme}
-      // style={{ overflowX: 'hidden' }}
-    >
+    <div className={theme}>
       <Navbar isRegister={false} isLogin={false} isHomepage={true} />
       <ScrollSync>
         <>
