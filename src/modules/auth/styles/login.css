@@ -15,12 +15,10 @@
 
 .login-wrapper.lightTheme {
   border: 1px solid black;
-  /* box-shadow: 0px 0px 20px 1px var(--color-cryptomania); mozda za dodat */
 }
 
 .login-wrapper.darkTheme {
   border: var(--border-split);
-  /* box-shadow: 0px 0px 20px 1px var(--color-cryptomania); mozda za dodat */
 }
 
 .login-title {

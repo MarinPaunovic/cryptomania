@@ -1,0 +1,77 @@
+.user-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline: 15px;
+}
+
+.user-dropdown-activate {
+  background-color: transparent;
+  border: none;
+}
+
+.user-dropdown-activate-bg {
+  background-color: var(--color-cryptomania);
+  border-radius: 25px;
+  padding: 2px;
+}
+.user-dropdown-activate:hover {
+  cursor: pointer;
+}
+
+.user-dropdown-menu.false {
+  display: none;
+}
+.user-dropdown-menu.true {
+  position: absolute;
+  z-index: 2;
+  top: calc(35px + 9.5px);
+  right: 0%;
+  top: 70px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  min-width: 150px;
+  align-items: start;
+  gap: 7px;
+  box-shadow: 0px 2px 10px 1px var(--color-cryptomania);
+}
+
+.user-dropdown-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.user-dropdown-menu button,
+.user-dropdown-menu a {
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-size-content);
+  font-family: var(--font-family-content);
+  position: relative;
+}
+
+.user-dropdown-menu button:hover,
+.user-dropdown-menu a:after {
+  cursor: pointer;
+}
+.user-dropdown-menu button::after,
+.user-dropdown-menu a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  left: 0;
+  bottom: -1px;
+  background-color: var(--color-cryptomania);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.user-dropdown-menu button:hover::after,
+.user-dropdown-menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

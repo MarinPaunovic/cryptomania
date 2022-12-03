@@ -12,6 +12,10 @@
   display: flex;
 }
 
+.aic {
+  align-items: center;
+}
+
 .jcsbetween {
   justify-content: space-between;
 }

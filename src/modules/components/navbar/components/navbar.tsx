@@ -8,8 +8,7 @@ import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
 import { Link } from 'react-router-dom';
-import { auth } from 'modules/db/db';
-import { signOut } from 'firebase/auth';
+import { UserDropdown } from './userDropdown';
 
 export const Navbar = ({
   isLogin,
@@ -24,7 +23,6 @@ export const Navbar = ({
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-  console.log(isLoggedIn);
 
   return (
     <header className={`page-header ${theme}`}>
@@ -68,15 +66,7 @@ export const Navbar = ({
               <span>Search</span>
             </div>
           )}
-          {isLoggedIn && (
-            <button
-              onClick={() => {
-                signOut(auth);
-              }}
-            >
-              Logout
-            </button>
-          )}
+          {isLoggedIn && <UserDropdown />}
         </div>
       </div>
 

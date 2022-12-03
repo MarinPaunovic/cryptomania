@@ -7,6 +7,7 @@ import logger from 'redux-logger';
 export interface RootState {
   theme: { theme: string };
   auth: { auth: boolean };
+  dropdown: boolean;
 }
 
 const middlewares = [thunk, logger];

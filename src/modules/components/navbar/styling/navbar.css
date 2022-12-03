@@ -69,6 +69,7 @@
 }
 .page-header-buttons {
   display: flex;
+  height: 100%;
   flex-direction: row;
   align-items: center;
 }
@@ -113,4 +114,7 @@
   padding: calc(var(--padding-button) * 1.5);
   margin-right: 15px;
   border: none;
+}
+
+.logout-button {
 }

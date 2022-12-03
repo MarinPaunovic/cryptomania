@@ -8,7 +8,6 @@ import { ScrollSync } from 'react-scroll-sync';
 
 export const Homepage = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
-
   return (
     <div className={theme}>
       <Navbar isRegister={false} isLogin={false} isHomepage={true} />
