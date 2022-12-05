@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
@@ -23,6 +23,18 @@ export const Navbar = ({
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
+  function getWindowSize() {
+    setInnerWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', getWindowSize);
+    return () => {
+      window.removeEventListener('resize', getWindowSize);
+    };
+  }, []);
 
   return (
     <header className={`page-header ${theme}`}>
@@ -66,7 +78,7 @@ export const Navbar = ({
               <span>Search</span>
             </div>
           )}
-          {isLoggedIn && <UserDropdown />}
+          {isLoggedIn && innerWidth > 670 && <UserDropdown />}
         </div>
       </div>
 

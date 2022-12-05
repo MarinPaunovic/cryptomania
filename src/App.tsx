@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Homepage } from './pages/homepage';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from 'modules/db/db';
 import { setLogin } from 'modules/redux/auth/auth';
@@ -11,9 +11,11 @@ import { PrivateRoute } from 'modules/router/privateRoute';
 import UserProfilePage from 'pages/userProfile';
 import { PublicRoute } from 'modules/router/publicRoute';
 import { setOpen } from 'modules/redux/dropdown/userDropdownSlice';
+import { RootState } from 'modules/redux/rootReducer';
 
 function App() {
   const dispatch = useDispatch();
+  const isOpen = useSelector((state: RootState) => state.userDropdown.isOpen);
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
       if (!user) {
@@ -26,9 +28,10 @@ function App() {
       authSub();
     };
   }, [dispatch]);
+
   const handleClick = (e: React.MouseEvent) => {
     if (!(e.target as Element).className.includes('user-dropdown')) {
-      dispatch(setOpen(false));
+      if (isOpen) dispatch(setOpen(false));
     }
   };
 

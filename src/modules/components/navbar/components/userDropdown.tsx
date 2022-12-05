@@ -10,18 +10,20 @@ export const UserDropdown = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const isOpen = useSelector((state: RootState) => state.userDropdown.isOpen);
   const [userImg, setUserImg] = useState<string | null>();
-
+  console.log('userDropdown component');
   const dispatch = useDispatch();
 
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
+      console.log('useEffect');
       if (!user) return;
+      console.log('useEffect');
       setUserImg(user.photoURL);
     });
     return () => {
       authSub();
     };
-  }, [setUserImg]);
+  }, []);
 
   return (
     <div className={`user-dropdown-wrapper ${isOpen}`}>
