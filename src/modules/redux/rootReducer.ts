@@ -3,7 +3,7 @@ import authSlice from './auth/auth';
 import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
-import userDropdownSlice from './dropdown/userDropdownSlice';
+
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +12,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  userDropdown: userDropdownSlice,
   theme: themeSlice,
   auth: authSlice,
 });

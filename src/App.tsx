@@ -10,12 +10,9 @@ import { setLogin } from 'modules/redux/auth/auth';
 import { PrivateRoute } from 'modules/router/privateRoute';
 import UserProfilePage from 'pages/userProfile';
 import { PublicRoute } from 'modules/router/publicRoute';
-import { setOpen } from 'modules/redux/dropdown/userDropdownSlice';
-import { RootState } from 'modules/redux/rootReducer';
 
 function App() {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state: RootState) => state.userDropdown.isOpen);
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
       if (!user) {
@@ -29,19 +26,8 @@ function App() {
     };
   }, [dispatch]);
 
-  const handleClick = (e: React.MouseEvent) => {
-    if (!(e.target as Element).className.includes('user-dropdown')) {
-      if (isOpen) dispatch(setOpen(false));
-    }
-  };
-
   return (
-    <div
-      className="App"
-      // onClick={(e) => {
-      //   handleClick(e);
-      // }}
-    >
+    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Homepage />} />

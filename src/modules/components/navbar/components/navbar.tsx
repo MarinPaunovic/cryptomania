@@ -36,7 +36,6 @@ export const Navbar = ({
   //     window.removeEventListener('resize', getWindowSize);
   //   };
   // }, []);
-
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">
@@ -94,4 +93,3 @@ export const Navbar = ({
     </header>
   );
 };
-// innerWidth > 670 &&

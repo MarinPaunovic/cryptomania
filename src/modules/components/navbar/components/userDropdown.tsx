@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { auth } from 'modules/db/db';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import { setOpen } from 'modules/redux/dropdown/userDropdownSlice';
+import { useOutsideClick } from 'hooks/useOutsideClick';
 
 interface UserDropdown {
   isUserDropdown: boolean;
@@ -17,7 +17,8 @@ export const UserDropdown = ({
 }: UserDropdown) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const [userImg, setUserImg] = useState<string | null>();
-  console.log(isUserDropdown);
+  const ref = useOutsideClick<HTMLDivElement>(() => setIsUserDropdown(false));
+
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
       if (!user) return;
@@ -29,17 +30,11 @@ export const UserDropdown = ({
   }, []);
 
   return (
-    <div
-      className={`user-dropdown-wrapper ${isUserDropdown}`}
-      onBlur={() => {
-        console.log('gasi element');
-      }}
-    >
+    <div className={`user-dropdown-wrapper ${isUserDropdown}`} ref={ref}>
       <div className={`user-dropdown-activate-bg ${isUserDropdown}`}>
         <button
           className={`user-dropdown-activate f aic ${isUserDropdown}`}
           onClick={() => {
-            // dispatch(setOpen(!isOpen));
             setIsUserDropdown(!isUserDropdown);
           }}
         >
