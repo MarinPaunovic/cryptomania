@@ -6,18 +6,21 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { setOpen } from 'modules/redux/dropdown/userDropdownSlice';
 
-export const UserDropdown = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
-  const isOpen = useSelector((state: RootState) => state.userDropdown.isOpen);
-  const [userImg, setUserImg] = useState<string | null>();
-  console.log('userDropdown component');
-  const dispatch = useDispatch();
+interface UserDropdown {
+  isUserDropdown: boolean;
+  setIsUserDropdown: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export const UserDropdown = ({
+  setIsUserDropdown,
+  isUserDropdown,
+}: UserDropdown) => {
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const [userImg, setUserImg] = useState<string | null>();
+  console.log(isUserDropdown);
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
-      console.log('useEffect');
       if (!user) return;
-      console.log('useEffect');
       setUserImg(user.photoURL);
     });
     return () => {
@@ -26,12 +29,18 @@ export const UserDropdown = () => {
   }, []);
 
   return (
-    <div className={`user-dropdown-wrapper ${isOpen}`}>
-      <div className={`user-dropdown-activate-bg ${isOpen}`}>
+    <div
+      className={`user-dropdown-wrapper ${isUserDropdown}`}
+      onBlur={() => {
+        console.log('gasi element');
+      }}
+    >
+      <div className={`user-dropdown-activate-bg ${isUserDropdown}`}>
         <button
-          className={`user-dropdown-activate f aic ${isOpen}`}
+          className={`user-dropdown-activate f aic ${isUserDropdown}`}
           onClick={() => {
-            dispatch(setOpen(!isOpen));
+            // dispatch(setOpen(!isOpen));
+            setIsUserDropdown(!isUserDropdown);
           }}
         >
           {userImg !== undefined || null ? (
@@ -44,23 +53,25 @@ export const UserDropdown = () => {
           )}
         </button>
       </div>
-      <div className={`user-dropdown-menu ${isOpen} fc ${theme}`}>
-        <Link to={'/user-profile'} className={theme}>
-          My profile
-        </Link>
-        <Link to={'/portfolio'} className={theme}>
-          Portfolio{' '}
-        </Link>
-        <button
-          className={theme}
-          onClick={() => {
-            signOut(auth);
-            dispatch(setOpen(false));
-          }}
-        >
-          Logout
-        </button>
-      </div>
+      {isUserDropdown && (
+        <div className={`user-dropdown-menu ${isUserDropdown} fc ${theme}`}>
+          <Link to={'/user-profile'} className={theme}>
+            My profile
+          </Link>
+          <Link to={'/portfolio'} className={theme}>
+            Portfolio
+          </Link>
+          <button
+            className={theme}
+            onClick={() => {
+              signOut(auth);
+              setIsUserDropdown(false);
+            }}
+          >
+            Logout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

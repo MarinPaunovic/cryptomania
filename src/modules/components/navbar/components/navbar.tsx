@@ -22,19 +22,20 @@ export const Navbar = ({
   const theme = useSelector((state: RootState) => state.theme.theme);
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
+  const [isUserDropdown, setIsUserDropdown] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  // const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
-  function getWindowSize() {
-    setInnerWidth(window.innerWidth);
-  }
+  // function getWindowSize() {
+  //   setInnerWidth(window.innerWidth);
+  // }
 
-  useEffect(() => {
-    window.addEventListener('resize', getWindowSize);
-    return () => {
-      window.removeEventListener('resize', getWindowSize);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('resize', getWindowSize);
+  //   return () => {
+  //     window.removeEventListener('resize', getWindowSize);
+  //   };
+  // }, []);
 
   return (
     <header className={`page-header ${theme}`}>
@@ -78,7 +79,12 @@ export const Navbar = ({
               <span>Search</span>
             </div>
           )}
-          {isLoggedIn && innerWidth > 670 && <UserDropdown />}
+          {isLoggedIn && (
+            <UserDropdown
+              setIsUserDropdown={setIsUserDropdown}
+              isUserDropdown={isUserDropdown}
+            />
+          )}
         </div>
       </div>
 
@@ -88,3 +94,4 @@ export const Navbar = ({
     </header>
   );
 };
+// innerWidth > 670 &&

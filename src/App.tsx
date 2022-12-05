@@ -38,9 +38,9 @@ function App() {
   return (
     <div
       className="App"
-      onClick={(e) => {
-        handleClick(e);
-      }}
+      // onClick={(e) => {
+      //   handleClick(e);
+      // }}
     >
       <Router>
         <Routes>
