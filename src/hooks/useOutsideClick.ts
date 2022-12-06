@@ -5,13 +5,12 @@ export function useOutsideClick<T extends HTMLElement>(
 ) {
   const ref = useRef<T>(null);
 
-  const onClick = (e: MouseEvent) => {
-    if (ref.current && !ref.current.contains(e.target as Node)) {
-      callback?.();
-    }
-  };
-
   useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        callback?.();
+      }
+    };
     window.addEventListener('mousedown', onClick);
     return () => window.removeEventListener('mousedown', onClick);
   }, [callback]);
