@@ -3,26 +3,16 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRef } from 'react';
 import { RootState } from 'modules/redux/store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ScrollSyncPane } from 'react-scroll-sync';
-
-interface CoinsArray {
-  market_cap_rank: number;
-  name: string;
-  current_price: number;
-  symbol: string;
-  image: string;
-  last_updated: string;
-  price_change_percentage_1h_in_currency: number;
-  price_change_percentage_24h_in_currency: number;
-  price_change_percentage_7d_in_currency: number;
-}
+import { setCoinList } from 'modules/redux/coinList/coinListSlice';
 
 export const CoinsList = () => {
-  const [coinsArr, setCoinsArr] = useState([]);
   const [ticker, setTicker] = useState(0);
   const theme = useSelector((state: RootState) => state.theme.theme);
   const firstRender = useRef(false);
+  const { coinList } = useSelector((state: RootState) => state.coinList);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!firstRender.current) {
@@ -33,7 +23,7 @@ export const CoinsList = () => {
         .then((res) => {
           if (!res) return;
           setTicker(ticker + 1);
-          setCoinsArr(res.data);
+          dispatch(setCoinList(res.data));
         });
       firstRender.current = true;
       return;
@@ -46,19 +36,21 @@ export const CoinsList = () => {
         )
         .then((res) => {
           if (!res) return;
-          setCoinsArr(res.data);
+          setTicker(ticker + 1);
+          dispatch(setCoinList(res.data));
         });
     }, 10000);
+
     return () => {
       clearTimeout(timeout);
     };
-  }, [firstRender, coinsArr, ticker]);
+  }, [firstRender, ticker, dispatch]);
 
   return (
     <ScrollSyncPane>
       <main className="coin-list-container main-align">
-        {coinsArr &&
-          coinsArr.map((item: CoinsArray, i: number) => {
+        {coinList &&
+          coinList.map((item, i: number) => {
             return (
               <div key={i} className={`coin-list-wrapper ${theme}`}>
                 <div className={`coin-list-description-wrapper g ${theme}`}>
