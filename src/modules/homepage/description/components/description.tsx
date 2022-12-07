@@ -9,7 +9,9 @@ import {
 
 export const Description = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
-  const { whatOrder } = useSelector((state: RootState) => state.coinList);
+  const { whatOrder, howOrder } = useSelector(
+    (state: RootState) => state.coinList,
+  );
 
   const dispatch = useDispatch();
 
@@ -20,65 +22,68 @@ export const Description = () => {
       dispatch(setOrderCoinList());
       return;
     }
+    if (howOrder === 'desc') dispatch(setHowOrder('asc'));
+    else dispatch(setHowOrder('desc'));
+    dispatch(setOrderCoinList());
   };
 
   return (
     <ScrollSyncPane>
       <div className={`coin-description main-align ${theme} `}>
         <div className={`coin-description-wrapper g ${theme}`}>
-          <span
-            className="coin-description-main"
+          <button
+            className={`coin-description-main ${theme}`}
             onClick={() => {
               handleClick('market_cap_rank');
             }}
           >
             #
-          </span>
-          <span
-            className="coin-description-main"
+          </button>
+          <button
+            className={`coin-description-main ${theme}`}
             onClick={() => {
               handleClick('name');
             }}
           >
             Coin
-          </span>
+          </button>
         </div>
         <div
           className="coin-description-price-wrapper g"
           id="scrollSyncDescription"
         >
-          <span
-            className="coin-description-price"
+          <button
+            className={`coin-description-price ${theme}`}
             onClick={() => {
               handleClick('current_price');
             }}
           >
             Price
-          </span>
-          <span
-            className="coin-description-price"
+          </button>
+          <button
+            className={`coin-description-price ${theme}`}
             onClick={() => {
               handleClick('price_change_percentage_1h_in_currency');
             }}
           >
             1h
-          </span>
-          <span
-            className="coin-description-price"
+          </button>
+          <button
+            className={`coin-description-price ${theme}`}
             onClick={() => {
               handleClick('price_change_percentage_24h_in_currency');
             }}
           >
             24h
-          </span>
-          <span
-            className="coin-description-price"
+          </button>
+          <button
+            className={`coin-description-price ${theme}`}
             onClick={() => {
               handleClick('price_change_percentage_7d_in_currency');
             }}
           >
             7d
-          </span>
+          </button>
         </div>
       </div>
     </ScrollSyncPane>

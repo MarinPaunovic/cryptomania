@@ -40,8 +40,13 @@
   color: rgb(99, 99, 99);
 }
 
-.coin-description-main {
+.coin-description-main,
+.coin-description-price {
   width: fit-content;
+  border-color: transparent;
+  background-color: transparent;
+  font-size: var(--font-size-button);
+  font-family: var(--font-family-content);
 }
 
 .coin-description-main:hover {
