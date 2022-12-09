@@ -1,6 +1,6 @@
 import { useAuthForm } from 'hooks/useAuthForm';
 import { singInWithGoogle } from 'modules/db/db';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CustomButton } from '../customButton';
 
@@ -10,6 +10,7 @@ interface CustomForm {
 }
 
 export const CustomForm = ({ isLogin, theme }: CustomForm) => {
+  useEffect;
   // const [username, setUsername] = useState('');
   // const [isUsername, setIsUsername] = useState(true);
   // const [email, setEmail] = useState('');
