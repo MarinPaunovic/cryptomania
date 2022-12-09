@@ -1,4 +1,5 @@
 export const LoginForm = () => {
+  const { isLogin, isRegister } = useAuthForm();
   return (
     <div className={`login-container ${theme} fc`}>
       <div className={`login-wrapper fc ${theme}`}>
