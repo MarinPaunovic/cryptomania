@@ -23,6 +23,7 @@ export const CustomForm = ({ isLogin, theme }: CustomForm) => {
   const auth = useAuthForm();
   // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+  console.log('test');
   // if (!isLogin) {
   //   if (!username || !email || !password || !confirmPassword) {
   //     if (!email) setIsEmail(false);
