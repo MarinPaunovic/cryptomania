@@ -2,6 +2,7 @@ import { singInWithGoogle } from 'modules/db/db';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CustomButton } from '../customButton';
+import { useAuthForm } from './useAuthForm';
 
 interface CustomForm {
   isLogin: boolean;
@@ -9,45 +10,18 @@ interface CustomForm {
 }
 
 export const CustomForm = ({ isLogin, theme }: CustomForm) => {
-  const [username, setUsername] = useState('');
-  const [isUsername, setIsUsername] = useState(true);
-  const [email, setEmail] = useState('');
-  const [isEmail, setIsEmail] = useState(true);
-  const [password, setPassword] = useState('');
-  const [isPassword, setIsPassword] = useState(true);
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [isConfirmPassword, setIsConfirmPassword] = useState(true);
-  const [isPasswordLength, setIsPasswordLength] = useState(true);
-  const [isPasswordMatch, setIsPasswordMatch] = useState(true);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isLogin) {
-      if (!username || !email || !password || !confirmPassword) {
-        if (!email) setIsEmail(false);
-        else setIsEmail(true);
-        if (!password) setIsPassword(false);
-        else setIsPassword(true);
-        if (!username) setIsUsername(false);
-        else setIsUsername(true);
-        if (!confirmPassword) setIsConfirmPassword(false);
-        else setIsConfirmPassword(true);
-        return;
-      }
-      console.log(email);
-      if (password !== confirmPassword) {
-        setIsPasswordMatch(false);
-        return;
-      }
-      if (password.length <= 6 && confirmPassword.length <= 6) {
-        setIsPasswordLength(false);
-        return;
-      }
-
-      setIsPasswordLength(true);
-      setIsPasswordMatch(true);
-    }
-  };
+  const {
+    isEmail,
+    isPassword,
+    isUsername,
+    isPasswordMatch,
+    isPasswordLength,
+    onRegister,
+    onEmailChange,
+    onUsernameChange,
+    onPasswordChange,
+    onConfirmPasswordChange,
+  } = useAuthForm(isLogin);
 
   return (
     <div className={`login-container ${theme} fc`}>
@@ -56,19 +30,14 @@ export const CustomForm = ({ isLogin, theme }: CustomForm) => {
           {isLogin ? 'Login Page' : 'Register Page'}
         </h1>
 
-        <form
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-          className={`login-form fc ${theme}`}
-        >
+        <form onSubmit={onRegister} className={`login-form fc ${theme}`}>
           <div>
             <label htmlFor="username">Username</label>
             <input
               id="username"
               type="text"
               className={!isUsername ? `${theme} empty-field` : `${theme}`}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={onUsernameChange}
             ></input>
           </div>
           <div>
@@ -77,7 +46,7 @@ export const CustomForm = ({ isLogin, theme }: CustomForm) => {
               id="email"
               type="text"
               className={!isEmail ? `${theme} empty-field` : `${theme}`}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={onEmailChange}
             ></input>
           </div>
           <div>
@@ -94,7 +63,7 @@ export const CustomForm = ({ isLogin, theme }: CustomForm) => {
                     : `${theme} password-match`
                   : `${theme} empty-field`
               }
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={onPasswordChange}
             ></input>
             {!isPasswordLength && (
               <span className={'password-short'}>
@@ -126,7 +95,7 @@ export const CustomForm = ({ isLogin, theme }: CustomForm) => {
                         : `${theme} test`
                       : `password-error ${theme}`
                   }
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={onConfirmPasswordChange}
                 ></input>
               </div>
               <div className="login-to-register-wrapper f">
