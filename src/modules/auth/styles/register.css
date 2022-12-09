@@ -3,10 +3,6 @@
   height: calc(100vh - 71px);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .registerButton {
   font-size: var(--font-size-button);
   padding: var(--padding-button);
@@ -20,4 +16,15 @@
 
 .registerButton:hover {
   cursor: pointer;
+}
+
+.login-form .empty-field.darkTheme {
+  border-bottom-color: var(--color-cryptomania);
+}
+.login-form .empty-field.darkTheme:hover {
+  border-bottom-color: red;
+}
+
+.password-error.darkTheme {
+  border-bottom-color: rgb(255, 20, 20);
 }

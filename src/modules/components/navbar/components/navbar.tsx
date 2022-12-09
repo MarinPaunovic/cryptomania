@@ -24,18 +24,7 @@ export const Navbar = ({
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-  // const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
-  // function getWindowSize() {
-  //   setInnerWidth(window.innerWidth);
-  // }
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', getWindowSize);
-  //   return () => {
-  //     window.removeEventListener('resize', getWindowSize);
-  //   };
-  // }, []);
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">
