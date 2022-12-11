@@ -15,6 +15,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
+      console.log(user);
       if (!user) {
         dispatch(setLogin(false));
         return;
@@ -39,7 +40,14 @@ function App() {
               </PublicRoute>
             }
           />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute navigate="/">
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
           <Route
             path="/user-profile"
             element={

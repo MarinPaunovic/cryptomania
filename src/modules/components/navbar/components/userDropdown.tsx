@@ -28,7 +28,7 @@ export const UserDropdown = ({
       authSub();
     };
   }, []);
-
+  console.log(userImg);
   return (
     <div className={`user-dropdown-wrapper ${isUserDropdown}`} ref={ref}>
       <div className={`user-dropdown-activate-bg ${isUserDropdown}`}>
@@ -38,7 +38,7 @@ export const UserDropdown = ({
             setIsUserDropdown(!isUserDropdown);
           }}
         >
-          {userImg !== undefined || null ? (
+          {userImg !== (undefined || null) ? (
             <img className="user-dropdown-img" src={`${userImg}`} />
           ) : (
             <img
