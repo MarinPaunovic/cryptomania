@@ -21,7 +21,7 @@ export const CoinsList = () => {
           'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d',
         )
         .then((res) => {
-          if (!res) return;
+          if (!res || coinList.length) return;
           setTicker(ticker + 1);
           dispatch(setCoinList(res.data));
         });
@@ -44,7 +44,7 @@ export const CoinsList = () => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [firstRender, ticker, dispatch]);
+  }, [firstRender, ticker, dispatch, coinList]);
 
   return (
     <ScrollSyncPane>
@@ -73,10 +73,7 @@ export const CoinsList = () => {
                         : { color: '#00e200' }
                     }
                   >
-                    {Math.round(
-                      item.price_change_percentage_1h_in_currency * 10,
-                    ) / 10}
-                    %
+                    {Math.round(item.price_change_percentage_1h_in_currency * 10) / 10}%
                   </div>
                   <div
                     className="coin-list-price"
@@ -86,10 +83,7 @@ export const CoinsList = () => {
                         : { color: '#00e200' }
                     }
                   >
-                    {Math.round(
-                      item.price_change_percentage_24h_in_currency * 10,
-                    ) / 10}
-                    %
+                    {Math.round(item.price_change_percentage_24h_in_currency * 10) / 10}%
                   </div>
                   <div
                     className="coin-list-price"
@@ -99,10 +93,7 @@ export const CoinsList = () => {
                         : { color: '#00e200' }
                     }
                   >
-                    {Math.round(
-                      item.price_change_percentage_7d_in_currency * 10,
-                    ) / 10}
-                    %
+                    {Math.round(item.price_change_percentage_7d_in_currency * 10) / 10}%
                   </div>
                 </div>
               </div>

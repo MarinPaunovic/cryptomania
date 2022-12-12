@@ -62,11 +62,6 @@ const coinListSlice = createSlice({
   },
 });
 
-export const {
-  setHowOrder,
-  setCoinList,
-  setOrderCoinList,
-  setWhatOrder,
-  setIsAscending,
-} = coinListSlice.actions;
+export const { setHowOrder, setCoinList, setOrderCoinList, setWhatOrder, setIsAscending } =
+  coinListSlice.actions;
 export default coinListSlice.reducer;
