@@ -1,13 +1,13 @@
-import { singInWithGoogle } from 'modules/db/db';
 import { FormProvider } from 'react-hook-form';
 import { Input } from '../customInput/input';
 import { useAuthForm } from '../../../../hooks/useAuthForm';
+import { Link } from 'react-router-dom';
 
 interface RegisterForm {
   theme: string;
 }
 
-export const RegisterForm = ({ theme }: { theme: string }) => {
+export const RegisterForm = ({ theme }: RegisterForm) => {
   const { onSubmit, handleSubmit, watch, form } = useAuthForm(false);
 
   return (
@@ -52,6 +52,10 @@ export const RegisterForm = ({ theme }: { theme: string }) => {
               },
             }}
           />
+        </div>
+        <div className="login-to-register-wrapper f">
+          <p>Already have an account?</p>
+          <Link to="/login">Login</Link>
         </div>
         <button title="Login" className={`login-button ${theme}`}>
           Register

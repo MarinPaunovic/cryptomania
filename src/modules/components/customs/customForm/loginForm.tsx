@@ -1,8 +1,13 @@
 import { FormProvider } from 'react-hook-form';
 import { Input } from '../customInput/input';
 import { useAuthForm } from '../../../../hooks/useAuthForm';
+import { Link } from 'react-router-dom';
 
-export const LoginForm = ({ theme }: any) => {
+interface LoginForm {
+  theme: string;
+}
+
+export const LoginForm = ({ theme }: LoginForm) => {
   const { onSubmit, handleSubmit, form } = useAuthForm(true);
 
   return (
@@ -18,7 +23,11 @@ export const LoginForm = ({ theme }: any) => {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <Input name="password" theme={theme} />
+          <Input name="password" theme={theme} isPassword={true} />
+        </div>
+        <div className="login-to-register-wrapper f">
+          <p>Don't have an account yet?</p>
+          <Link to="/register">Register</Link>
         </div>
         <button title="Login" className={`login-button ${theme}`}>
           Login

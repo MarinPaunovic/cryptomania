@@ -122,7 +122,7 @@
   background-color: var(--color-cryptomania);
 }
 
-.login-button.darkTheme:hover {
+.login-button:hover {
   cursor: pointer;
   background-color: rgb(255, 20, 20);
 }
