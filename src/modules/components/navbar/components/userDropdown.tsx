@@ -11,10 +11,7 @@ interface UserDropdown {
   setIsUserDropdown: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const UserDropdown = ({
-  setIsUserDropdown,
-  isUserDropdown,
-}: UserDropdown) => {
+export const UserDropdown = ({ setIsUserDropdown, isUserDropdown }: UserDropdown) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const [userImg, setUserImg] = useState<string | null>();
   const ref = useOutsideClick<HTMLDivElement>(() => setIsUserDropdown(false));
@@ -28,7 +25,6 @@ export const UserDropdown = ({
       authSub();
     };
   }, []);
-  console.log(userImg);
   return (
     <div className={`user-dropdown-wrapper ${isUserDropdown}`} ref={ref}>
       <div className={`user-dropdown-activate-bg ${isUserDropdown}`}>
@@ -41,10 +37,7 @@ export const UserDropdown = ({
           {userImg !== (undefined || null) ? (
             <img className="user-dropdown-img" src={`${userImg}`} />
           ) : (
-            <img
-              className="user-dropdown-img"
-              src={require('images/userDefaultImg.png')}
-            />
+            <img className="user-dropdown-img" src={require('images/userDefaultImg.png')} />
           )}
         </button>
       </div>

@@ -1,12 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
 import { ScrollSyncPane } from 'react-scroll-sync';
-import {
-  setCoinList,
-  setHowOrder,
-  setOrderCoinList,
-  setWhatOrder,
-} from 'modules/redux/coinList/coinListSlice';
+import { setHowOrder, setOrderCoinList, setWhatOrder } from 'modules/redux/coinList/coinListSlice';
 import { useEffect, useRef } from 'react';
 
 export const Description = () => {

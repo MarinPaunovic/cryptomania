@@ -1,7 +1,6 @@
-import { LoginForm } from 'modules/components/customs/customForm/loginForm';
+import { LoginForm } from 'modules/components';
 import { singInWithGoogle } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
-import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 export const Login = () => {

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Homepage } from './pages/homepage';
 import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from 'modules/db/db';
 import { setLogin } from 'modules/redux/auth/auth';
@@ -15,7 +15,6 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
-      console.log(user);
       if (!user) {
         dispatch(setLogin(false));
         return;
@@ -53,9 +52,7 @@ function App() {
             element={
               <PrivateRoute
                 navigate="/login"
-                message={
-                  'You have to be logged in to enter this page. Redirecting..'
-                }
+                message={'You have to be logged in to enter this page. Redirecting..'}
               >
                 <UserProfilePage />
               </PrivateRoute>

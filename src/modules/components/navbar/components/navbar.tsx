@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
@@ -43,11 +43,7 @@ export const Navbar = ({
         </div>
         <ThemeToggle className="smallTheme" />
         {!isRegister && !isLogin && menuToggle === 'closed' && (
-          <HamburgerIcon
-            menuToggle={menuToggle}
-            setMenuToggle={setMenuToggle}
-            theme={theme}
-          />
+          <HamburgerIcon menuToggle={menuToggle} setMenuToggle={setMenuToggle} theme={theme} />
         )}
         <div className="page-header-buttons">
           {(isRegister || isHomepage) && !isLoggedIn && (
@@ -68,10 +64,7 @@ export const Navbar = ({
             </div>
           )}
           {isLoggedIn && (
-            <UserDropdown
-              setIsUserDropdown={setIsUserDropdown}
-              isUserDropdown={isUserDropdown}
-            />
+            <UserDropdown setIsUserDropdown={setIsUserDropdown} isUserDropdown={isUserDropdown} />
           )}
         </div>
       </div>

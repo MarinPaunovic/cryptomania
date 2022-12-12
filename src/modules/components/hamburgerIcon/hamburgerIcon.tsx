@@ -4,11 +4,7 @@ export type Props = {
   theme?: string;
 };
 
-export const HamburgerIcon: React.FC<Props> = ({
-  menuToggle,
-  setMenuToggle,
-  theme,
-}) => {
+export const HamburgerIcon: React.FC<Props> = ({ menuToggle, setMenuToggle, theme }) => {
   return (
     <div
       className={`page-header-button-small ${menuToggle === 'open' && 'open'}`}
@@ -18,15 +14,9 @@ export const HamburgerIcon: React.FC<Props> = ({
         } else setMenuToggle('closed');
       }}
     >
-      <span
-        className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
-      ></span>
-      <span
-        className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
-      ></span>
-      <span
-        className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}
-      ></span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
     </div>
   );
 };
