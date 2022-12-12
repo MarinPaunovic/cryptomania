@@ -28,3 +28,10 @@
 .password-error.darkTheme {
   border-bottom-color: rgb(255, 20, 20);
 }
+
+.login-form .register-error-message {
+  margin-top: 3.5px;
+  font-family: var(--font-family-content);
+  font-size: calc(var(--font-size-content) * 0.7);
+  color: var(--color-cryptomania);
+}
