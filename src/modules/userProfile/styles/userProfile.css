@@ -1,0 +1,58 @@
+.user-profile-wrapper {
+  grid-template-columns: 19% auto 79%;
+  min-height: calc(100vh - 70px - 380px);
+}
+.user-profile-menu {
+  height: 87%;
+  align-self: center;
+  gap: 15px;
+  overflow: scroll;
+}
+.user-profile-wrapper .splitter {
+  background-color: var(--color-split);
+  width: 2px;
+  min-height: 90%;
+  align-self: center;
+}
+.user-profile-menu h1 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+.user-profile-menu button {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  text-align: left;
+  font-size: calc(var(--font-size-content) * 1.35);
+}
+.user-profile-menu button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  left: 0;
+  bottom: -1px;
+  background-color: var(--color-cryptomania);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.user-profile-menu button.focus.darkTheme {
+  color: rgb(155, 155, 155);
+}
+
+.user-profile-menu button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.user-profile-menu button:hover {
+  cursor: pointer;
+}
+
+.user-profile-wrapper div {
+  min-height: 87%;
+  align-self: center;
+}

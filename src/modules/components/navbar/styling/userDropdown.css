@@ -43,6 +43,14 @@
   border-radius: 100%;
 }
 
+.user-dropdown-img::selection {
+  color: red;
+  background-color: red;
+  border-radius: 50%;
+  width: 3px;
+  height: 3px;
+}
+
 .user-dropdown-menu button,
 .user-dropdown-menu a {
   background-color: transparent;

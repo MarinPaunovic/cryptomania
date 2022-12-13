@@ -14,10 +14,12 @@ export const Navbar = ({
   isLogin,
   isRegister,
   isHomepage,
+  isUserProfile,
 }: {
-  isLogin: boolean;
-  isRegister: boolean;
-  isHomepage: boolean;
+  isLogin?: boolean;
+  isRegister?: boolean;
+  isHomepage?: boolean;
+  isUserProfile?: boolean;
 }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const navigate = useNavigate();
@@ -57,7 +59,7 @@ export const Navbar = ({
             </Link>
           )}
           <ThemeToggle className="bigTheme" />
-          {!isRegister && !isLogin && (
+          {!isRegister && !isLogin && !isUserProfile && (
             <div className="page-header-search">
               <FontAwesomeIcon icon={faSearch} />
               <span>Search</span>

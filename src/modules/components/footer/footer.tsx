@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-wrapper">
+      <div className="footer-wrapper main-align">
         <div className="footer-title fc">
           <div className="footer-title-title f">
             <img src={require('images/cryptomania.jpg')} className="footer-title-image" />

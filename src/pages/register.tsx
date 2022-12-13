@@ -4,7 +4,7 @@ import { Navbar } from 'modules/components';
 const RegisterPage = () => {
   return (
     <>
-      <Navbar isLogin={false} isRegister={true} isHomepage={false} />
+      <Navbar isRegister={true} />
       <Register />
     </>
   );

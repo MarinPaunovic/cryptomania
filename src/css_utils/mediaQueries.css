@@ -1,73 +1,28 @@
 @media only screen and (max-width: 1500px) {
-  .coin-description.main-align {
-    max-width: 75rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 75rem;
-  }
-  .footer-wrapper {
-    max-width: 75rem;
-  }
-  .page-header-wrapper {
+  .main-align {
     max-width: 75rem;
   }
 }
 @media only screen and (max-width: 1330px) {
-  .coin-description.main-align {
-    max-width: 70rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 70rem;
-  }
-  .footer-wrapper {
-    max-width: 70rem;
-  }
-  .page-header-wrapper {
+  .main-align {
     max-width: 70rem;
   }
 }
 
 @media only screen and (max-width: 1240px) {
-  .coin-description.main-align {
-    max-width: 65rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 65rem;
-  }
-  .footer-wrapper {
-    max-width: 65rem;
-  }
-  .page-header-wrapper {
+  .main-align {
     max-width: 65rem;
   }
 }
 
 @media only screen and (max-width: 1140px) {
-  .coin-description.main-align {
-    max-width: 60rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 60rem;
-  }
-  .footer-wrapper {
-    max-width: 60rem;
-  }
-  .page-header-wrapper {
-    max-width: 60rem;
+  .main-align {
+    max-width: 60;
   }
 }
 
 @media only screen and (max-width: 1040px) {
-  .coin-description.main-align {
-    max-width: 55rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 55rem;
-  }
-  .footer-wrapper {
-    max-width: 55rem;
-  }
-  .page-header-wrapper {
+  .main-align {
     max-width: 55rem;
   }
 }
@@ -98,34 +53,25 @@
     min-width: 470px;
     grid-template-columns: repeat(4, 1fr);
   }
-  .coin-description.main-align {
-    max-width: 45rem;
-  }
-  .coin-list-container.main-align {
-    max-width: 45rem;
-  }
-  .footer-wrapper {
-    max-width: 45rem;
-  }
-  .page-header-wrapper {
+  .main-align {
     max-width: 45rem;
   }
 }
 
 @media only screen and (max-width: 780px) {
-  .page-header-wrapper,
-  .coin-list-container.main-align,
-  .footer-wrapper,
-  .coin-description.main-align {
+  .main-align,
+  .login-wrapper {
     max-width: 37rem;
   }
 }
 
 @media only screen and (max-width: 670px) {
-  .page-header-wrapper,
-  .coin-list-container.main-align,
-  .footer-wrapper,
-  .coin-description.main-align {
+  .user-profile-menu button,
+  h1 {
+    font-size: calc(var(--font-size-content));
+  }
+  .main-align,
+  .login-wrapper {
     max-width: 30rem;
   }
   .page-header-buttons {
@@ -161,20 +107,15 @@
   .dropdown-menu.open {
     padding-top: 5rem;
   }
-  .login-wrapper {
-    max-width: 30rem;
-  }
 }
 
 @media only screen and (max-width: 540px) {
-  .page-header-wrapper,
-  .coin-list-container.main-align,
-  .footer-wrapper,
-  .coin-description.main-align {
-    max-width: 25rem;
-  }
+  .main-align,
   .login-wrapper {
     max-width: 25rem;
+  }
+  .user-profile-wrapper {
+    grid-template-columns: 24% auto 74%;
   }
   .login-wrapper.darkTheme,
   .login-wrapper.lightTheme {
@@ -184,12 +125,7 @@
 }
 
 @media only screen and (max-width: 440px) {
-  .page-header-wrapper,
-  .coin-list-container.main-align,
-  .footer-wrapper,
-  .coin-description.main-align {
-    max-width: 22rem;
-  }
+  .main-align,
   .login-wrapper {
     max-width: 22rem;
   }
