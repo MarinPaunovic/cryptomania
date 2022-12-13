@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className="footer-title-description">
             <p>
               Cryptomania is learning project and also potential personal app for tracking crypto
-              world. Cryptomania will look to improve all user's need and request.
+              world. Cryptomania is learning project and it's only for educational purposes!
             </p>
           </div>
           <p className="footer-title-copyright">© 2022 Cryptomania. All Rights Reserved.</p>
