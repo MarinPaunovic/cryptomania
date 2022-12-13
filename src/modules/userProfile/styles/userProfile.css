@@ -6,7 +6,7 @@
   height: 87%;
   align-self: center;
   gap: 15px;
-  overflow: scroll;
+  overflow: auto;
 }
 .user-profile-wrapper .splitter {
   background-color: var(--color-split);

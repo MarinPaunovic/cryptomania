@@ -138,3 +138,9 @@
     margin-bottom: 0px;
   }
 }
+
+@media only screen and (max-height: 800px) {
+  .user-profile-wrapper {
+    min-height: 350px;
+  }
+}
