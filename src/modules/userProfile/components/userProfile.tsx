@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from '@firebase/auth';
+import { onAuthStateChanged, signOut } from '@firebase/auth';
 
 import { auth } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
@@ -56,7 +56,9 @@ export const UserProfile = () => {
             >
               My portfolio
             </button>
-            <button className={theme}>Logout</button>
+            <button className={theme} onClick={() => signOut(auth)}>
+              Logout
+            </button>
           </aside>
           <div className="splitter"></div>
           <div>{whatComponent}</div>
