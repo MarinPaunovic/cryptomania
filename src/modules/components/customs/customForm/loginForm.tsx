@@ -8,6 +8,7 @@ interface LoginForm {
 }
 
 export const LoginForm = ({ theme }: LoginForm) => {
+  console.log('login form');
   const { onSubmit, handleSubmit, form } = useAuthForm(true);
 
   return (
@@ -15,15 +16,15 @@ export const LoginForm = ({ theme }: LoginForm) => {
       <form onSubmit={handleSubmit(onSubmit)} className={`login-form fc ${theme}`}>
         <div>
           <label htmlFor="username">Username</label>
-          <Input name="username" theme={theme} />
+          <Input name="username" />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <Input name="email" theme={theme} />
+          <Input name="email" />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <Input name="password" theme={theme} isPassword={true} />
+          <Input name="password" isPassword={true} />
         </div>
         <div className="login-to-register-wrapper f">
           <p>Don't have an account yet?</p>

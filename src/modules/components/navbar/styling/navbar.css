@@ -76,19 +76,6 @@
   height: var(--font-size-title);
   filter: brightness(135%);
 }
-.page-header-search {
-  background-color: rgb(235, 235, 235);
-  color: rgba(156, 163, 175);
-  padding: 0.75rem;
-  display: flex;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
-  padding-right: 3rem;
-}
-.page-header-search:hover {
-  cursor: text;
-  color: gray;
-}
 
 .page-header-theme {
   margin-right: 0.5rem;

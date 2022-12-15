@@ -9,6 +9,7 @@ import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
 import { Link } from 'react-router-dom';
 import { UserDropdown } from './userDropdown';
+import { Search } from './search';
 
 export const Navbar = ({
   isLogin,
@@ -26,7 +27,7 @@ export const Navbar = ({
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-
+  console.log('navbar component');
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">
@@ -59,12 +60,7 @@ export const Navbar = ({
             </Link>
           )}
           <ThemeToggle className="bigTheme" />
-          {!isRegister && !isLogin && !isUserProfile && (
-            <div className="page-header-search">
-              <FontAwesomeIcon icon={faSearch} />
-              <span>Search</span>
-            </div>
-          )}
+          {!isRegister && !isLogin && !isUserProfile && <Search />}
           {isLoggedIn && (
             <UserDropdown setIsUserDropdown={setIsUserDropdown} isUserDropdown={isUserDropdown} />
           )}

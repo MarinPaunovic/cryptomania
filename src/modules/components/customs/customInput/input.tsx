@@ -1,14 +1,16 @@
+import { RootState } from 'modules/redux/rootReducer';
 import { HTMLAttributes } from 'react';
 import { RegisterOptions, useFormContext } from 'react-hook-form';
+import { useSelector } from 'react-redux';
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
   name: string;
-  theme: string;
   isPassword?: boolean;
   validate?: RegisterOptions;
 }
 
-export const Input: React.FC<Props> = ({ name, theme, isPassword, validate, ...rest }) => {
+export const Input: React.FC<Props> = ({ name, isPassword, validate, ...rest }) => {
+  const theme = useSelector((state: RootState) => state.theme.theme);
   const {
     register,
     formState: { errors },

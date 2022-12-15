@@ -1,2 +1,1 @@
-export * from './components/navbar';
-export * from './components/dropdownMenu';
+export * from './components';

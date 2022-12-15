@@ -15,17 +15,16 @@ export const RegisterForm = ({ theme }: RegisterForm) => {
       <form onSubmit={handleSubmit(onSubmit)} className={`login-form fc ${theme}`}>
         <div className="fc">
           <label htmlFor="username">Username</label>
-          <Input name="username" theme={theme} />
+          <Input name="username" />
         </div>
         <div className="fc">
           <label htmlFor="email">Email</label>
-          <Input name="email" theme={theme} />
+          <Input name="email" />
         </div>
         <div className="fc">
           <label htmlFor="password">Password</label>
           <Input
             name="password"
-            theme={theme}
             isPassword={true}
             validate={{
               minLength: {
@@ -39,7 +38,6 @@ export const RegisterForm = ({ theme }: RegisterForm) => {
           <label htmlFor="confirmPassword">Confirm password</label>
           <Input
             name="confirmPassword"
-            theme={theme}
             isPassword={true}
             validate={{
               validate: (v) => {
