@@ -1,31 +1,43 @@
-import { Control, useWatch } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
-import { CoinsArray } from 'modules/redux/coinList/coinListSlice';
+import { SubmitHandler } from 'react-hook-form';
+import { handleString } from 'functions/handleString';
 
-interface FormData {
-  search: string;
+interface SearchList {
+  name: string;
+  rank: number;
+}
+type Hover = { hover: string; e: React.FormEvent<HTMLFormElement> };
+export interface SubmitProp {
+  hover: string | undefined;
 }
 
-export const useSearch = ({ control }: { control: Control<FormData> }) => {
-  const [wSearch, setWSearch] = useState('');
-  const [searchList, setSearchList] = useState<Array<string>>();
-  const coinList = useSelector((state: RootState) => state.coinList.coinList);
+export const useSearch = () => {
+  const [searchList, setSearchList] = useState<Array<SearchList>>();
+  const list = useSelector((state: RootState) => state.searchList.searchList);
 
   const handleSearch = (search: string) => {
-    const map = <string[]>[];
-    coinList.map((item) => {
-      if (item.name.toLocaleLowerCase().startsWith(search)) map.push(item.name);
+    if (!search) return setSearchList([]);
+    const map = <SearchList[]>[];
+    list.map((item) => {
+      if (item.name.toLocaleLowerCase().startsWith(search))
+        map.push({ name: item.name, rank: item.rank });
       return;
     });
     setSearchList(map);
-    setWSearch(search);
   };
 
-  const onSubmit = () => {
-    console.log('prvi coin select');
+  const onSubmit: SubmitHandler<Hover> = ({ hover, e }) => {
+    e?.preventDefault();
+
+    if (!hover && searchList) {
+      const adjustedString = handleString(searchList[0].name);
+      window.open(`https://www.coingecko.com/en/coins/${adjustedString}`, '_blank');
+    }
+    const adjustedString = handleString(hover);
+    window.open(`https://www.coingecko.com/en/coins/${adjustedString}`, '_blank');
   };
 
-  return { onSubmit, searchList, handleSearch, wSearch };
+  return { searchList, onSubmit, handleSearch };
 };

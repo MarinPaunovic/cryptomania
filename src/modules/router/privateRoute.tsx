@@ -9,11 +9,7 @@ interface RouteProps {
   message: string;
 }
 
-export const PrivateRoute: React.FC<RouteProps> = ({
-  children,
-  navigate,
-  message,
-}) => {
+export const PrivateRoute: React.FC<RouteProps> = ({ children, navigate, message }) => {
   const [redirect, setRedirect] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
   if (isLoggedIn) return children;

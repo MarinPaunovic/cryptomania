@@ -1,5 +1,3 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
@@ -27,7 +25,6 @@ export const Navbar = ({
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-  console.log('navbar component');
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">

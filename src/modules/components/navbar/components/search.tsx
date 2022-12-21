@@ -1,59 +1,87 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearch } from 'hooks/useSearch';
-import { Input } from 'modules/components/customs';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useOutsideClick } from 'hooks/useOutsideClick';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
+import { handleString } from 'functions/handleString';
 
-interface FormData {
+export interface FormData {
   search: string;
+  hover: string;
 }
 
 export const Search = () => {
   const [isSearch, setIsSearch] = useState(false);
-  const { register, control, handleSubmit, setValue } = useForm<FormData>();
-  const ref = useOutsideClick<HTMLDivElement>(() => setIsSearch(false));
-  const theme = useSelector((state: RootState) => state.theme.theme);
-  const { onSubmit, searchList, handleSearch, wSearch } = useSearch({ control });
-  const search = useWatch({
-    control,
-    name: 'search',
-    defaultValue: '',
+  const [hover, setHover] = useState<string>('');
+  const [adjustedRedirectString, setAdjustedRedirectString] = useState('');
+  const { onSubmit, handleSearch, searchList } = useSearch();
+  const form = useForm<FormData>();
+  const { register } = form;
+  const ref = useOutsideClick<HTMLDivElement>(() => {
+    setIsSearch(false);
   });
-
+  const theme = useSelector((state: RootState) => state.theme.theme);
   return (
     <div className="page-heared-search-wrapper" ref={ref}>
-      <div tabIndex={0} className="page-header-search" onClick={() => setIsSearch(true)}>
+      <div
+        tabIndex={0}
+        className="page-header-search"
+        onClick={() => {
+          setIsSearch(true);
+          document.getElementById('search-input')?.focus();
+        }}
+      >
         <FontAwesomeIcon icon={faSearch} />
         Search
       </div>
       {isSearch && (
         <div className={`search-results ${theme}`}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={(e) => onSubmit({ hover, e })}>
             <input
+              autoComplete="off"
+              autoFocus
+              id="search-input"
               className="search-input"
               placeholder="Search.."
               {...register('search', {
                 onChange: (e: React.FormEvent<HTMLInputElement>) => {
-                  // console.log(e.currentTarget.value);
                   handleSearch(e.currentTarget.value);
                 },
               })}
             />
+            <input type="submit" hidden={true} />
           </form>
-          {/* wSearch.length */}
-          <div className={`search-results-list fc ${theme}`}>
-            {searchList !== undefined ? (
-              searchList.map((item, i) => (
-                <a href={`https://www.coingecko.com/en/coins/${item.toLocaleLowerCase()}`}>
-                  <span key={i}>{item}</span>
+
+          <div id="search-results-list" className={`search-results-list fc`}>
+            {searchList && searchList.length > 0 ? (
+              searchList?.map((item, i) => (
+                <a
+                  onClick={() => {
+                    setAdjustedRedirectString(handleString(hover));
+                  }}
+                  href={`https://www.coingecko.com/en/coins/${adjustedRedirectString}`}
+                  target="_blank"
+                  key={i}
+                >
+                  <div
+                    onMouseEnter={() => setHover(item.name)}
+                    onMouseLeave={() => setHover('')}
+                    className={
+                      hover.length === 0 && i === 0
+                        ? 'search-results-wrapper f jcsbetween first'
+                        : 'search-results-wrapper f jcsbetween'
+                    }
+                  >
+                    <span className={`search-results-link ${theme}`}>{item.name}</span>
+                    <span className={`search-results-link ${theme}`}>{item.rank}</span>
+                  </div>
                 </a>
               ))
             ) : (
-              <span className="search-result-start">You are still not searching for any coin</span>
+              <span className="search-result-start">You are not searching for any coin</span>
             )}
           </div>
         </div>

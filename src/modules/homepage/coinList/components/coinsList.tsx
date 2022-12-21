@@ -6,6 +6,7 @@ import { RootState } from 'modules/redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { ScrollSyncPane } from 'react-scroll-sync';
 import { setCoinList } from 'modules/redux/coinList/coinListSlice';
+import { setSearchList } from 'modules/redux/searchList/searchListSlice';
 
 export const CoinsList = () => {
   const [ticker, setTicker] = useState(0);
@@ -13,7 +14,6 @@ export const CoinsList = () => {
   const firstRender = useRef(false);
   const { coinList } = useSelector((state: RootState) => state.coinList);
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (!firstRender.current) {
       axios
@@ -24,6 +24,7 @@ export const CoinsList = () => {
           if (!res || coinList.length) return;
           setTicker(ticker + 1);
           dispatch(setCoinList(res.data));
+          dispatch(setSearchList(res.data));
         });
       firstRender.current = true;
       return;

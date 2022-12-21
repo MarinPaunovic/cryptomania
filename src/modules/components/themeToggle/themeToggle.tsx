@@ -18,11 +18,7 @@ export const ThemeToggle = ({ className }: { className: string }) => {
         dispatch(toggle('lightTheme'));
       }}
     >
-      {theme == 'darkTheme' ? (
-        <FontAwesomeIcon icon={faSun} />
-      ) : (
-        <FontAwesomeIcon icon={faMoon} />
-      )}
+      {theme == 'darkTheme' ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
     </div>
   );
 };
