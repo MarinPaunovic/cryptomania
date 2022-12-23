@@ -28,6 +28,7 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
     setIsSearch(false);
   });
   const theme = useSelector((state: RootState) => state.theme.theme);
+
   return (
     <div className={`page-heared-search-wrapper ${isMobile ? 'mobile' : ''}`} ref={ref}>
       {isMobile ? (
@@ -77,7 +78,8 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
               searchList?.map((item, i) => (
                 <a
                   onClick={() => {
-                    setAdjustedRedirectString(handleString(hover));
+                    // setHover(item.name);
+                    setAdjustedRedirectString(handleString(item.name));
                   }}
                   href={`https://www.coingecko.com/en/coins/${adjustedRedirectString}`}
                   target="_blank"

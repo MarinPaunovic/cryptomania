@@ -20,10 +20,12 @@ export const useSearch = () => {
   const handleSearch = (search: string) => {
     if (!search) return setSearchList([]);
     const map = <SearchList[]>[];
+
     list.map((item) => {
-      if (item.name.toLocaleLowerCase().startsWith(search))
+      if (item.name.toLocaleLowerCase().startsWith(search.toLocaleLowerCase())) {
         map.push({ name: item.name, rank: item.rank });
-      return;
+        return;
+      }
     });
     setSearchList(map);
   };
