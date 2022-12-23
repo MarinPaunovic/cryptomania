@@ -11,7 +11,7 @@ interface UserDropdown {
   setIsUserDropdown: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const UserDropdown = ({ setIsUserDropdown, isUserDropdown }: UserDropdown) => {
+export const UserDropdown: React.FC<UserDropdown> = ({ setIsUserDropdown, isUserDropdown }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const [userImg, setUserImg] = useState<string | null>();
   const ref = useOutsideClick<HTMLDivElement>(() => setIsUserDropdown(false));

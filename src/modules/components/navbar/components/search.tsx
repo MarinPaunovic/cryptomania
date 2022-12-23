@@ -13,7 +13,11 @@ export interface FormData {
   hover: string;
 }
 
-export const Search = () => {
+interface Search {
+  isMobile?: boolean;
+}
+
+export const Search: React.FC<Search> = ({ isMobile }) => {
   const [isSearch, setIsSearch] = useState(false);
   const [hover, setHover] = useState<string>('');
   const [adjustedRedirectString, setAdjustedRedirectString] = useState('');
@@ -25,20 +29,33 @@ export const Search = () => {
   });
   const theme = useSelector((state: RootState) => state.theme.theme);
   return (
-    <div className="page-heared-search-wrapper" ref={ref}>
-      <div
-        tabIndex={0}
-        className="page-header-search"
-        onClick={() => {
-          setIsSearch(true);
-          document.getElementById('search-input')?.focus();
-        }}
-      >
-        <FontAwesomeIcon icon={faSearch} />
-        Search
-      </div>
+    <div className={`page-heared-search-wrapper ${isMobile ? 'mobile' : ''}`} ref={ref}>
+      {isMobile ? (
+        <div
+          tabIndex={0}
+          className={`page-header-search mobile ${theme}`}
+          onClick={() => {
+            setIsSearch(true);
+            document.getElementById('search-input')?.focus();
+          }}
+        >
+          <FontAwesomeIcon icon={faSearch} />
+        </div>
+      ) : (
+        <div
+          tabIndex={0}
+          className="page-header-search"
+          onClick={() => {
+            setIsSearch(true);
+            document.getElementById('search-input')?.focus();
+          }}
+        >
+          <FontAwesomeIcon icon={faSearch} />
+          Search
+        </div>
+      )}
       {isSearch && (
-        <div className={`search-results ${theme}`}>
+        <div className={`search-results ${theme} ${isMobile ? 'mobile' : ''}`}>
           <form onSubmit={(e) => onSubmit({ hover, e })}>
             <input
               autoComplete="off"

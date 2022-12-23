@@ -82,6 +82,10 @@
     position: relative;
     right: 40px;
   }
+  .page-heared-search-wrapper.mobile {
+    display: block;
+  }
+
   .page-header-theme.smallTheme {
     position: relative;
     display: flex;

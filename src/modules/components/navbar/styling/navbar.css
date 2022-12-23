@@ -102,5 +102,7 @@
   border: none;
 }
 
-.logout-button {
+.page-header-buttons-small {
+  align-items: center;
+  gap: 1rem;
 }

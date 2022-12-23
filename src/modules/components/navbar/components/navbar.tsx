@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/store';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
@@ -25,6 +25,7 @@ export const Navbar = ({
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
   const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
+
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">
@@ -41,13 +42,16 @@ export const Navbar = ({
           />
           Cryptomania
         </div>
-        <ThemeToggle className="smallTheme" />
-        {!isRegister && !isLogin && menuToggle === 'closed' && (
-          <HamburgerIcon menuToggle={menuToggle} setMenuToggle={setMenuToggle} theme={theme} />
-        )}
+        <div className="page-header-buttons-small fr">
+          <Search isMobile={true} />
+          <ThemeToggle className="smallTheme" />
+          {!isRegister && !isLogin && menuToggle === 'closed' && (
+            <HamburgerIcon menuToggle={menuToggle} setMenuToggle={setMenuToggle} theme={theme} />
+          )}
+        </div>
         <div className="page-header-buttons">
           {(isRegister || isHomepage) && !isLoggedIn && (
-            <Link to="/login" className={`login-button-navbar ${theme} `}>
+            <Link to="/login" className={`login-button-navbar ${theme}`}>
               Login
             </Link>
           )}

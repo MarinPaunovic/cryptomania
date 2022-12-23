@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { HamburgerIcon, Props } from '../../hamburgerIcon/hamburgerIcon';
 import { signOut } from 'firebase/auth';
 import { auth } from 'modules/db/db';
+import { Search } from './search';
 
 export const DropdownMenu: React.FC<Props> = ({ menuToggle, setMenuToggle }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);

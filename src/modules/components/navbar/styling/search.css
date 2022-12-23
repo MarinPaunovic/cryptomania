@@ -2,6 +2,11 @@
   position: relative;
   z-index: 2;
 }
+
+.page-heared-search-wrapper.mobile {
+  position: static;
+  display: none;
+}
 .page-header-search {
   background-color: rgb(235, 235, 235);
   color: rgba(156, 163, 175);
@@ -76,4 +81,19 @@
 .search-results-wrapper:hover > * {
   background-color: #888;
   cursor: pointer;
+}
+
+.page-header-search.mobile {
+  padding: 0px;
+}
+.page-header-search.mobile:hover {
+  cursor: pointer;
+}
+
+.search-results.mobile {
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  right: 0px;
 }
