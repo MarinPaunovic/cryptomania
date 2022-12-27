@@ -40,7 +40,7 @@
   transition: transform 0.25s ease-out;
 }
 
-.user-profile-menu button.focus.darkTheme {
+.user-profile-menu button.focus {
   color: rgb(155, 155, 155);
 }
 
@@ -52,7 +52,9 @@
   cursor: pointer;
 }
 
-.user-profile-wrapper div {
-  min-height: 87%;
+.component-wrapper {
+  height: 87%;
   align-self: center;
+  margin-left: 20px;
+  overflow-y: auto;
 }

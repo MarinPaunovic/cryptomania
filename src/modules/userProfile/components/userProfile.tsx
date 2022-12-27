@@ -61,7 +61,7 @@ export const UserProfile = () => {
             </button>
           </aside>
           <div className="splitter"></div>
-          <div>{whatComponent}</div>
+          <div className="component-wrapper">{whatComponent}</div>
         </div>
       </div>
     </div>

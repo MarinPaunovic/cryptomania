@@ -7,8 +7,7 @@ interface LoginForm {
   theme: string;
 }
 
-export const LoginForm = ({ theme }: LoginForm) => {
-  console.log('login form');
+export const LoginForm: React.FC<LoginForm> = ({ theme }) => {
   const { onSubmit, handleSubmit, form } = useAuthForm(true);
 
   return (

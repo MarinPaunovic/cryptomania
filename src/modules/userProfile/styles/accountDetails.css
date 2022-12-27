@@ -1,0 +1,13 @@
+.account-details-wrapper {
+  gap: 25px;
+}
+.account-details-wrapper div {
+  gap: 5px;
+}
+.account-details-wrapper.fc {
+  font-family: var(--font-family-content);
+}
+.account-details-wrapper img {
+  width: 60px;
+  height: 60px;
+}
