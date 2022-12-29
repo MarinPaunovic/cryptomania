@@ -1,3 +1,116 @@
-.saved-adress-form {
-  width: 20rem;
+.saved-addresses-item {
+  column-gap: 30px;
+  align-items: center;
+  border-bottom: var(--border-split);
+}
+
+.saved-addresses-item {
+  padding-block: 5px;
+}
+.saved-addresses-actions {
+  gap: 7px;
+}
+.saved-addresses-copy,
+.saved-addresses-delete {
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+.saved-addresses-delete .icon,
+.saved-addresses-copy .icon {
+  color: var(--color-cryptomania);
+  border: none;
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+}
+.saved-addresses-actions .tooltip {
+  position: fixed;
+  transform: translateY(calc(-100% - 8px));
+  color: white;
+  white-space: nowrap;
+  z-index: 1;
+  background-color: gray;
+  padding-block: 3px;
+  padding-inline: 5px;
+  border-radius: 0.5rem;
+  display: none;
+  font-size: calc(var(--font-size-content) / 1.4);
+}
+
+.saved-addresses-copy .icon:hover + .tooltip,
+.saved-addresses-delete .icon:hover + .tooltip {
+  display: inline-block;
+}
+
+.saved-addresses-delete .icon:hover,
+.saved-addresses-copy .icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.saved-addresses-list {
+  width: 60%;
+  gap: 10px;
+}
+.saved-address-form {
+  width: 13rem;
+  position: absolute;
+  right: 0px;
+  top: 25%;
+  gap: 15px;
+  padding: 2rem;
+  border: 0.5px solid white;
+  border-radius: 0.5rem;
+}
+.saved-address-form h3 {
+  font-weight: 400;
+}
+.saved-address-form input {
+  height: 35px;
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+  border: none;
+  outline: none;
+  border-bottom: var(--border-split);
+  background-color: transparent;
+  font-size: calc(var(--font-size-content) / 1.2);
+}
+.saved-address-form button {
+  align-self: center;
+  width: 50%;
+  font-size: var(--font-size-button);
+  background-color: var(--color-cryptomania);
+  padding-block: 7px;
+  border: none;
+  border-radius: 1rem;
+}
+.saved-address-form button:hover {
+  cursor: pointer;
+}
+.saved-address-form input:hover {
+  border-bottom: 0.15rem solid rgb(223, 223, 223, 1);
+}
+.saved-addressees-form-toggle {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border: none;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-button);
+}
+.saved-address-wrapper .form-toggle:hover {
+  cursor: pointer;
+}
+.saved-address-form .register-error-message {
+  margin-top: 3.5px;
+  font-family: var(--font-family-content);
+  font-size: calc(var(--font-size-content) * 0.7);
+  color: var(--color-cryptomania);
 }

@@ -1,11 +1,10 @@
 import { onAuthStateChanged, signOut } from '@firebase/auth';
-
 import { auth } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AccountDetails } from './accountDetails';
-import { SavedAdress } from './savedAdress';
+import { SavedAddress } from './savedAddress';
 
 export const UserProfile = () => {
   const [user, setUser] = useState('');
@@ -23,7 +22,12 @@ export const UserProfile = () => {
       unsub();
     };
   }, []);
-
+  useEffect(() => {
+    console.log('in');
+    return () => {
+      console.log('out');
+    };
+  }, []);
   return (
     <div className={`${theme}`}>
       <div className={`main-align`}>
@@ -41,9 +45,9 @@ export const UserProfile = () => {
               Account Details
             </button>
             <button
-              onClick={() => setWhatComponent(<SavedAdress />)}
+              onClick={() => setWhatComponent(<SavedAddress />)}
               className={
-                whatComponent && whatComponent.type.name == 'SavedAdress'
+                whatComponent && whatComponent.type.name == 'SavedAddress'
                   ? `focus ${theme}`
                   : `${theme}`
               }
