@@ -63,7 +63,7 @@ export const SavedAddress = () => {
             }}
             className="saved-addressees-form-toggle"
           >
-            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+            {isForm ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faPlus} />}
           </button>
         </div>
         {!isSearch ? (
