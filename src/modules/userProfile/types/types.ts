@@ -1,13 +1,26 @@
-export interface SavedAdress {
-  name?: string;
-  address?: string;
+export interface SavedAddressesForm {
+  search: string;
+  name: string;
+  address: string;
 }
 
-export interface SnapData extends SavedAdress {
+export interface SavedAddressesFormData {
+  name: string;
+  address: string;
+}
+
+export interface SavedAddressActionsData {
+  address: string;
   id: string;
 }
 
-export interface SavedAddressProps {
-  isForm?: boolean;
-  setIsForm?: React.Dispatch<React.SetStateAction<boolean>>;
+export interface SavedAddressesData {
+  name: string;
+  address: string;
+  id: string;
+}
+
+export interface SavedAddressesSearchDtata {
+  search: string;
+  list: Array<SavedAddressesData>;
 }

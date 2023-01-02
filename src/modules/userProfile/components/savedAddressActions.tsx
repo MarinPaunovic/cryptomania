@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from 'modules/db/db';
 import { useEffect, useRef, useState } from 'react';
-import { SnapData } from '../types';
+import { SavedAddressActionsData } from '../types';
 
-export const SavedAddressActions: React.FC<SnapData> = ({ address, id }) => {
+export const SavedAddressActions: React.FC<SavedAddressActionsData> = ({ address, id }) => {
   const [isCopy, setIsCopy] = useState(false);
   const handleDelete = () => {
     deleteDoc(doc(db, 'savedAddresses', id));
@@ -28,7 +28,7 @@ export const SavedAddressActions: React.FC<SnapData> = ({ address, id }) => {
   }, [isCopy]);
 
   return (
-    <div className="saved-addresses-actions fr">
+    <div className="saved-addresses-buttons fr">
       <button className="saved-addresses-copy f" onClick={() => handleCopy()}>
         {!isCopy ? (
           <FontAwesomeIcon icon={faCopy} className="icon" />

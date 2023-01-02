@@ -8,7 +8,10 @@ interface SearchList {
   name: string;
   rank: number;
 }
-type Hover = { hover: string; e: React.FormEvent<HTMLFormElement> };
+interface Hover {
+  hover: string;
+  e: React.FormEvent<HTMLFormElement>;
+}
 export interface SubmitProp {
   hover: string | undefined;
 }
@@ -32,7 +35,6 @@ export const useSearch = () => {
 
   const onSubmit: SubmitHandler<Hover> = ({ hover, e }) => {
     e?.preventDefault();
-
     if (!hover && searchList) {
       const adjustedString = handleString(searchList[0].name);
       window.open(`https://www.coingecko.com/en/coins/${adjustedString}`, '_blank');
