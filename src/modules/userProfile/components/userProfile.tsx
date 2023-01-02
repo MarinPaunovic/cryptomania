@@ -1,39 +1,22 @@
-import { onAuthStateChanged, signOut } from '@firebase/auth';
+import { signOut } from '@firebase/auth';
 import { auth } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AccountDetails } from './accountDetails';
 import { SavedAddress } from './savedAddress';
 
 export const UserProfile = () => {
-  const [user, setUser] = useState('');
   const [whatComponent, setWhatComponent] = useState<JSX.Element | null>(<AccountDetails />);
   const theme = useSelector((state: RootState) => state.theme.theme);
+  const authS = useSelector((state: RootState) => state.auth.auth);
 
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (user && user.displayName) {
-        setUser(user.displayName);
-      }
-    });
-
-    return () => {
-      unsub();
-    };
-  }, []);
-  useEffect(() => {
-    console.log('in');
-    return () => {
-      console.log('out');
-    };
-  }, []);
   return (
     <div className={`${theme}`}>
       <div className={`main-align`}>
         <div className={`user-profile-wrapper ${theme} g`}>
           <aside className="user-profile-menu fc">
-            <h1>Hi, {user}</h1>
+            <h1>Hi, {authS.displayName}</h1>
             <button
               onClick={() => setWhatComponent(<AccountDetails />)}
               className={

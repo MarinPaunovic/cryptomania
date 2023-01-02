@@ -5,7 +5,6 @@ import { toggle } from 'modules/redux/theme/themeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const ThemeToggle = ({ className }: { className: string }) => {
-  console.log(`theme toggle ${className}`);
   const theme = useSelector((state: RootState) => state.theme.theme);
   const dispatch = useDispatch();
   return (

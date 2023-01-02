@@ -11,8 +11,9 @@ interface RouteProps {
 
 export const PrivateRoute: React.FC<RouteProps> = ({ children, navigate, message }) => {
   const [redirect, setRedirect] = useState(false);
-  const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-  if (isLoggedIn) return children;
+  const { auth } = useSelector((state: RootState) => state.auth);
+
+  if (auth.uid) return children;
   if (!redirect) {
     setTimeout(() => {
       setRedirect(true);

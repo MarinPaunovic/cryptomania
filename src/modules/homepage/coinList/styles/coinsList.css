@@ -44,7 +44,7 @@
 
 .coin-list-description-wrapper {
   align-items: center;
-  grid-template-columns: 2rem auto;
+  grid-template-columns: 1rem 2rem auto;
   gap: 0.5rem;
   min-width: 12rem;
   border-bottom: var(--border-split);
@@ -57,4 +57,14 @@
   grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr;
   border-bottom: var(--border-split);
   padding-right: 1.5rem;
+}
+.coin-list-favorite-button {
+  font-size: calc(var(--font-size-content) / 1.2);
+  background-color: transparent;
+  border: none;
+}
+
+.coin-list-favorite-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }

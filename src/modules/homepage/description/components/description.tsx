@@ -43,6 +43,7 @@ export const Description = () => {
     <ScrollSyncPane>
       <div className={`coin-description main-align ${theme} `}>
         <div className={`coin-description-wrapper g ${theme}`}>
+          <div></div>
           <button
             className={`coin-description-main ${theme}`}
             onClick={() => {

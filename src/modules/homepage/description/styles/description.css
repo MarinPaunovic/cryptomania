@@ -56,6 +56,6 @@
 
 .coin-description-wrapper {
   gap: 0.5rem;
-  grid-template-columns: 2rem auto;
+  grid-template-columns: 1rem 2rem auto;
   min-width: 12rem;
 }

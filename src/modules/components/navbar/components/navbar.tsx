@@ -24,8 +24,7 @@ export const Navbar = ({
   const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
-  const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
-
+  const { auth } = useSelector((state: RootState) => state.auth);
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">
@@ -50,19 +49,19 @@ export const Navbar = ({
           )}
         </div>
         <div className="page-header-buttons">
-          {(isRegister || isHomepage) && !isLoggedIn && (
+          {(isRegister || isHomepage) && !auth.uid && (
             <Link to="/login" className={`login-button-navbar ${theme}`}>
               Login
             </Link>
           )}
-          {(isLogin || isHomepage) && !isLoggedIn && (
+          {(isLogin || isHomepage) && !auth.uid && (
             <Link to="/register" className="registerButton">
               Register
             </Link>
           )}
           <ThemeToggle className="bigTheme" />
           {!isRegister && !isLogin && !isUserProfile && <Search />}
-          {isLoggedIn && (
+          {auth.uid && (
             <UserDropdown setIsUserDropdown={setIsUserDropdown} isUserDropdown={isUserDropdown} />
           )}
         </div>

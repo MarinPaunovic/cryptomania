@@ -16,10 +16,10 @@ function App() {
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        dispatch(setLogin(false));
+        dispatch(setLogin({}));
         return;
       }
-      dispatch(setLogin(true));
+      dispatch(setLogin(user));
     });
     return () => {
       authSub();

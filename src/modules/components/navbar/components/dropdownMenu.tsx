@@ -4,18 +4,17 @@ import { Link } from 'react-router-dom';
 import { HamburgerIcon, Props } from '../../hamburgerIcon/hamburgerIcon';
 import { signOut } from 'firebase/auth';
 import { auth } from 'modules/db/db';
-import { Search } from './search';
 
 export const DropdownMenu: React.FC<Props> = ({ menuToggle, setMenuToggle }) => {
   const theme = useSelector((state: RootState) => state.theme.theme);
-  const isLoggedIn = useSelector((state: RootState) => state.auth.auth);
+  const isAuth = useSelector((state: RootState) => state.auth.auth);
   return (
     <div
       className={`dropdown-menu ${menuToggle} ${theme}`}
       style={menuToggle == 'open' ? { right: '0px' } : { right: '-215px' }}
     >
       <HamburgerIcon theme={theme} menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
-      {!isLoggedIn && (
+      {!isAuth.uid && (
         <>
           <Link
             className="hamburger-element"
@@ -33,7 +32,7 @@ export const DropdownMenu: React.FC<Props> = ({ menuToggle, setMenuToggle }) => 
           </Link>
         </>
       )}
-      {isLoggedIn && (
+      {isAuth.uid && (
         <span className="hamburger-element" onClick={() => signOut(auth)}>
           Logout
         </span>
