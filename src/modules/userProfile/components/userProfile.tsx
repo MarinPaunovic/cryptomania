@@ -41,7 +41,7 @@ export const UserProfile = () => {
               onClick={() => setWhatComponent(null)}
               className={whatComponent == null ? `focus ${theme}` : `${theme}`}
             >
-              My portfolio
+              Portfolio
             </button>
             <button className={theme} onClick={() => signOut(auth)}>
               Logout

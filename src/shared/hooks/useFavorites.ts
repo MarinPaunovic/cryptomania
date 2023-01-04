@@ -4,9 +4,9 @@ import { RootState } from 'modules/redux/rootReducer';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AddFavoritesProps, FavoritesData } from '../types';
+import { AddFavoritesProps, FavoritesData } from '../../modules/homepage/coinList/types';
 
-export const useFavorites = () => {
+export function useFavorites() {
   const [favorites, setFavorites] = useState<Array<FavoritesData>>([]);
   const { auth } = useSelector((state: RootState) => state.auth);
   useEffect(() => {
@@ -37,4 +37,4 @@ export const useFavorites = () => {
   };
 
   return { favorites, addFavorites };
-};
+}

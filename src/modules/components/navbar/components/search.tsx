@@ -1,12 +1,13 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { useSearch } from 'hooks/useSearch';
+import { useSearch } from 'shared/hooks/useSearch';
 import { useForm } from 'react-hook-form';
-import { useOutsideClick } from 'hooks/useOutsideClick';
+import { useOutsideClick } from 'shared/hooks/useOutsideClick';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
 import { handleString } from 'functions/handleString';
+import { Favorites } from 'shared';
 
 export interface FormData {
   search: string;
@@ -28,7 +29,6 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
     setIsSearch(false);
   });
   const theme = useSelector((state: RootState) => state.theme.theme);
-
   return (
     <div className={`page-heared-search-wrapper ${isMobile ? 'mobile' : ''}`} ref={ref}>
       {isMobile ? (
@@ -76,28 +76,32 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
           <div id="search-results-list" className={`search-results-list fc`}>
             {searchList && searchList.length > 0 ? (
               searchList?.map((item, i) => (
-                <a
-                  onClick={() => {
-                    // setHover(item.name);
-                    setAdjustedRedirectString(handleString(item.name));
-                  }}
-                  href={`https://www.coingecko.com/en/coins/${adjustedRedirectString}`}
-                  target="_blank"
-                  key={i}
-                >
+                <div key={i} className="fr">
                   <div
                     onMouseEnter={() => setHover(item.name)}
                     onMouseLeave={() => setHover('')}
                     className={
                       hover.length === 0 && i === 0
-                        ? 'search-results-wrapper f jcsbetween first'
-                        : 'search-results-wrapper f jcsbetween'
+                        ? 'search-results-wrapper f first'
+                        : 'search-results-wrapper f'
                     }
                   >
-                    <span className={`search-results-link ${theme}`}>{item.name}</span>
-                    <span className={`search-results-link ${theme}`}>{item.rank}</span>
+                    <Favorites name={item.name} />
+                    <a
+                      className="search-results-href"
+                      onClick={() => {
+                        setAdjustedRedirectString(handleString(item.name));
+                      }}
+                      href={`https://www.coingecko.com/en/coins/${adjustedRedirectString}`}
+                      target="_blank"
+                    >
+                      <div className="fr jcsbetween">
+                        <span className={`search-results-link ${theme}`}>{item.name}</span>
+                        <span className={`search-results-link ${theme}`}>{item.rank}</span>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                </div>
               ))
             ) : (
               <span className="search-result-start">You are not searching for any coin</span>

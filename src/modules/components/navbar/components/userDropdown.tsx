@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import { useOutsideClick } from 'hooks/useOutsideClick';
+import { useOutsideClick } from 'shared/hooks/useOutsideClick';
 
 interface UserDropdown {
   isUserDropdown: boolean;

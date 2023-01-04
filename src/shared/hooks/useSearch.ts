@@ -25,8 +25,9 @@ export const useSearch = () => {
     const map = <SearchList[]>[];
 
     list.map((item) => {
+      console.log(item);
       if (item.name.toLocaleLowerCase().startsWith(search.toLocaleLowerCase())) {
-        map.push({ name: item.name, rank: item.rank });
+        map.push({ name: item.name, rank: item.market_cap_rank });
         return;
       }
     });

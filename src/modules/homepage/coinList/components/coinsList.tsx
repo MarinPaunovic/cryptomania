@@ -7,10 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ScrollSyncPane } from 'react-scroll-sync';
 import { setCoinList } from 'modules/redux/coinList/coinListSlice';
 import { setSearchList } from 'modules/redux/searchList/searchListSlice';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
-import { useFavorites } from '../hooks';
+import { Favorites } from 'shared';
 
 export const CoinsList = () => {
   const [ticker, setTicker] = useState(0);
@@ -19,7 +16,7 @@ export const CoinsList = () => {
   const { coinList } = useSelector((state: RootState) => state.coinList);
   const { auth } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
-  const { favorites, addFavorites } = useFavorites();
+
   useEffect(() => {
     if (!firstRender.current) {
       axios
@@ -61,23 +58,7 @@ export const CoinsList = () => {
             return (
               <div key={i} className={`coin-list-wrapper ${theme}`}>
                 <div className={`coin-list-description-wrapper g ${theme}`}>
-                  {!auth.uid ? (
-                    <div />
-                  ) : (
-                    <button
-                      className={`coin-list-favorite-button ${theme}`}
-                      onClick={() => {
-                        if (!auth.uid) return;
-                        addFavorites({ name: item.name, uid: auth.uid });
-                      }}
-                    >
-                      {!favorites.some((favorite) => favorite.name === item.name) ? (
-                        <FontAwesomeIcon icon={faStar} />
-                      ) : (
-                        <FontAwesomeIcon icon={faStarSolid} />
-                      )}
-                    </button>
-                  )}
+                  {!auth.uid ? <div /> : <Favorites name={item.name} />}
                   <div className="coin-list-rank">{item.market_cap_rank}</div>
                   <div className="coin-list-name-wrapper">
                     <img className="coin-list-image" src={item.image} />

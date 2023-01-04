@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 export const AccountDetails = () => {
   const auth = useSelector((state: RootState) => state.auth.auth);
-  if (auth.metadata) console.log(auth.metadata);
   return (
     <>
       {auth.uid && (

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface SearchProps {
   name: string;
-  rank: number;
+  market_cap_rank: number;
 }
 interface SearchArray {
   searchList: Array<SearchProps>;

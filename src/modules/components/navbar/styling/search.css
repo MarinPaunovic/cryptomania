@@ -97,3 +97,15 @@
   left: 0px;
   right: 0px;
 }
+
+.search-results-href {
+  width: 100%;
+}
+
+.search-results-link.darkTheme,
+.search-results-link.lightTheme {
+  background-color: transparent;
+}
+.search-results-wrapper .coin-list-favorite-button {
+  margin-inline: 0.2rem;
+}

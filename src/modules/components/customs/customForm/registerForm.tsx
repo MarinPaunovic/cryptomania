@@ -1,6 +1,6 @@
 import { FormProvider } from 'react-hook-form';
 import { Input } from '../customInput/input';
-import { useAuthForm } from '../../../../hooks/useAuthForm';
+import { useAuthForm } from '../../../../shared/hooks/useAuthForm';
 import { Link } from 'react-router-dom';
 
 interface RegisterForm {
