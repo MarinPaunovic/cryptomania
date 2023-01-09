@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { handleOrder } from 'functions/handleOrder';
+import { createSlice, current } from '@reduxjs/toolkit';
+import { handleOrder } from 'shared/functions/handleOrder';
 
 export interface CoinsArray {
   [key: string]: string | number;
@@ -36,7 +36,7 @@ const coinListSlice = createSlice({
         return;
       }
       const orderedList = handleOrder({
-        coinList: state.coinList,
+        coinList: current(state.coinList),
         howOrder: state.howOrder,
         whatOrder: state.whatOrder,
       });
@@ -53,7 +53,7 @@ const coinListSlice = createSlice({
     },
     setOrderCoinList(state) {
       const orderedList = handleOrder({
-        coinList: state.coinList,
+        coinList: current(state.coinList),
         howOrder: state.howOrder,
         whatOrder: state.whatOrder,
       });
