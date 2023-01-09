@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useOutsideClick } from 'shared/hooks/useOutsideClick';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
-import { handleString } from 'functions/handleString';
+import { handleString } from 'shared/functions/handleString';
 import { Favorites } from 'shared';
 
 export interface FormData {
@@ -25,7 +25,7 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
   const { onSubmit, handleSearch, searchList } = useSearch();
   const form = useForm<FormData>();
   const { register } = form;
-
+  console.log('re-render');
   const ref = useOutsideClick<HTMLDivElement>(() => {
     setIsSearch(false);
   });
