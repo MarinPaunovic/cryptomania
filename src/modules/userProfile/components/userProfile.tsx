@@ -4,6 +4,7 @@ import { RootState } from 'modules/redux/rootReducer';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AccountDetails } from './accountDetails';
+import { Portfolio } from './portfolio';
 import { SavedAddress } from './savedAddress';
 
 export const UserProfile = () => {
@@ -38,7 +39,7 @@ export const UserProfile = () => {
               Saved adresses
             </button>
             <button
-              onClick={() => setWhatComponent(null)}
+              onClick={() => setWhatComponent(<Portfolio />)}
               className={whatComponent == null ? `focus ${theme}` : `${theme}`}
             >
               Portfolio
