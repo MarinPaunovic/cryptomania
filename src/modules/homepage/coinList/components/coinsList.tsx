@@ -14,14 +14,10 @@ import { RootState } from 'modules/redux/rootReducer';
 export const CoinsList = () => {
   useCoinList();
   const dispatch = useDispatch();
-  const coinList = useSelector((state: RootState) => state.coinList.coinList);
+  const { coinList } = useSelector((state: RootState) => state.coinList);
   const { searchList } = useSelector((state: RootState) => state.searchList);
-  const firstRender = useRef(true);
+
   useEffect(() => {
-    if (firstRender) {
-      firstRender.current = false;
-      return;
-    }
     if (!coinList || !searchList) return;
     dispatch(setSearchList(coinList));
   }, [dispatch, coinList, searchList]);
