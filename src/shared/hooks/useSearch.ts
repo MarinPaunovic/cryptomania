@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'modules/redux/rootReducer';
 import { SubmitHandler } from 'react-hook-form';
-import { handleString } from 'functions/handleString';
+import { handleString } from 'shared/functions/handleString';
 
 interface SearchList {
   name: string;
@@ -25,7 +25,6 @@ export const useSearch = () => {
     const map = <SearchList[]>[];
 
     list.map((item) => {
-      console.log(item);
       if (item.name.toLocaleLowerCase().startsWith(search.toLocaleLowerCase())) {
         map.push({ name: item.name, rank: item.market_cap_rank });
         return;
