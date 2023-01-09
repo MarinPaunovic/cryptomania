@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from 'modules/redux/store';
 import { useState, useEffect } from 'react';
 import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
@@ -8,6 +7,7 @@ import { ThemeToggle } from '../../themeToggle/themeToggle';
 import { Link } from 'react-router-dom';
 import { UserDropdown } from './userDropdown';
 import { Search } from './search';
+import { RootState } from 'modules/redux/rootReducer';
 
 export const Navbar = ({
   isLogin,
