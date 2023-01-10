@@ -18,7 +18,7 @@ export const CoinsList = () => {
   const { searchList } = useSelector((state: RootState) => state.searchList);
 
   useEffect(() => {
-    if (!coinList || !searchList) return;
+    if (!coinList || searchList.length) return;
     dispatch(setSearchList(coinList));
   }, [dispatch, coinList, searchList]);
 
