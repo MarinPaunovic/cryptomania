@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { SavedAddressesData, SavedAddressesSearchDtata } from '../types';
+import { useState } from 'react';
+import { SavedAddressesData } from '../types';
 
 export const useSearchAddress = () => {
-  const [isSearch, setIsSearch] = useState(false);
   const [searchAddresses, setSearchAddresses] = useState<Array<SavedAddressesData>>([]);
+  const [isSearch, setIsSearch] = useState(false);
+
   const handleSearch = (search: string, list: Array<SavedAddressesData>) => {
     if (!search) {
       setSearchAddresses([]);

@@ -1,11 +1,13 @@
 {
   "tabWidth": 2,
   "singleQuote": true,
+  "prettier.jsxBracketSameLine": true,
   "trailingComma": "all",
+  "endOfLine": "auto",
   "printWidth": 100,
   "overrides": [
     {
-      "files": ["*.tsx", "*.ts", "*.json", "*.yml"],
+      "files": [".js", ".tsx", ".ts", ".json", "*.yml", ".prettierrc", "*.module.css"],
       "options": {
         "tabWidth": 2
       }

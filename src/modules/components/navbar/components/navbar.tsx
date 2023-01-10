@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { DropdownMenu } from './dropdownMenu';
 import { HamburgerIcon } from '../../hamburgerIcon/hamburgerIcon';
 import { ThemeToggle } from '../../themeToggle/themeToggle';
@@ -20,11 +20,12 @@ export const Navbar = ({
   isHomepage?: boolean;
   isUserProfile?: boolean;
 }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
-  const navigate = useNavigate();
   const [menuToggle, setMenuToggle] = useState('closed');
   const [isUserDropdown, setIsUserDropdown] = useState(false);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
+  const navigate = useNavigate();
+
   return (
     <header className={`page-header ${theme}`}>
       <div className="page-header-wrapper main-align fr">

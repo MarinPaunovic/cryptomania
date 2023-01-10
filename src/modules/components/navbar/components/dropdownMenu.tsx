@@ -6,8 +6,9 @@ import { signOut } from 'firebase/auth';
 import { auth } from 'modules/db/db';
 
 export const DropdownMenu: React.FC<Props> = ({ menuToggle, setMenuToggle }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const isAuth = useSelector((state: RootState) => state.auth.auth);
+
   return (
     <div
       className={`dropdown-menu ${menuToggle} ${theme}`}

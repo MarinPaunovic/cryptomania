@@ -2,7 +2,8 @@ import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 
 export const AccountDetails = () => {
-  const auth = useSelector((state: RootState) => state.auth.auth);
+  const { auth } = useSelector((state: RootState) => state.auth);
+
   return (
     <>
       {auth.uid && (

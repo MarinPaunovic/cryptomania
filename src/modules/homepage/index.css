@@ -1,2 +1,2 @@
-@import './coinList/index.css';
-@import './description/index.css';
+@import './styles/description.css';
+@import './styles/coinsList.css';

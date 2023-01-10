@@ -13,6 +13,7 @@ import { PublicRoute } from 'modules/router/publicRoute';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
       if (!user) {

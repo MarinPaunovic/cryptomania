@@ -13,7 +13,7 @@ interface Hover {
   e: React.FormEvent<HTMLFormElement>;
 }
 export interface SubmitProp {
-  hover: string | undefined;
+  hover?: string;
 }
 
 export const useSearch = () => {

@@ -4,7 +4,7 @@ import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 
 export const Login = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
 
   return (
     <div className={`login-container fc ${theme}`}>

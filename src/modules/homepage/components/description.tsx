@@ -6,11 +6,9 @@ import { useEffect, useRef } from 'react';
 import { RootState } from 'modules/redux/rootReducer';
 
 export const Description = () => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
   const { whatOrder, howOrder } = useSelector((state: RootState) => state.coinList);
-
+  const { theme } = useSelector((state: RootState) => state.theme);
   const dispatch = useDispatch();
-
   const firstRender = useRef(false);
 
   const handleClick = (what: string) => {

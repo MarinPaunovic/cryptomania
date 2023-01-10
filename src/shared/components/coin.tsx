@@ -4,8 +4,9 @@ import { CoinProps } from 'shared/types';
 import { Favorites } from './favorites';
 
 export const Coin: React.FC<CoinProps> = ({ item }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
+
   return (
     <div className={`coin-list-wrapper ${theme}`}>
       <div className={`coin-list-description-wrapper g ${theme}`}>

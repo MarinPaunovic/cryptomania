@@ -1,4 +1,4 @@
-import { faSearch, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useSearch } from 'shared/hooks/useSearch';
@@ -19,17 +19,16 @@ interface Search {
 }
 
 export const Search: React.FC<Search> = ({ isMobile }) => {
+  const [adjustedRedirectString, setAdjustedRedirectString] = useState('');
   const [isSearch, setIsSearch] = useState(false);
   const [hover, setHover] = useState<string>('');
-  const [adjustedRedirectString, setAdjustedRedirectString] = useState('');
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { onSubmit, handleSearch, searchList } = useSearch();
   const form = useForm<FormData>();
   const { register } = form;
-  console.log('re-render');
   const ref = useOutsideClick<HTMLDivElement>(() => {
     setIsSearch(false);
   });
-  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <div className={`page-heared-search-wrapper ${isMobile ? 'mobile' : ''}`} ref={ref}>

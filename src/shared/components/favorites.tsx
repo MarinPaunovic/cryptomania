@@ -10,6 +10,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
   const { favorites, addFavorites } = useFavorites();
   const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
+
   return (
     <button
       className={`coin-list-favorite-button ${theme}`}

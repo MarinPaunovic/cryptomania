@@ -1,40 +1,32 @@
 import axios from 'axios';
-import { CoinsArray, setCoinList } from 'modules/redux/coinList/coinListSlice';
+import { setCoinList } from 'modules/redux/coinList/coinListSlice';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 export const useCoinList = () => {
-  // const [localCoinList, setLocalCoinList] = useState<Array<CoinsArray>>();
+  const apiUrl =
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d';
   const firstRender = useRef(false);
   const dispatch = useDispatch();
   const [ticker, setTicker] = useState(0);
+
   useEffect(() => {
     if (!firstRender.current) {
-      axios
-        .get(
-          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d',
-        )
-        .then((res) => {
-          if (!res) return;
-          setTicker(ticker + 1);
-          dispatch(setCoinList(res.data));
-          // setLocalCoinList(res.data);
-        });
+      axios.get(`${apiUrl}`).then((res) => {
+        if (!res) return;
+        setTicker(ticker + 1);
+        dispatch(setCoinList(res.data));
+      });
       firstRender.current = true;
       return;
     }
 
     const timeout = setTimeout(async () => {
-      await axios
-        .get(
-          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d',
-        )
-        .then((res) => {
-          if (!res) return;
-          setTicker(ticker + 1);
-          dispatch(setCoinList(res.data));
-          // setLocalCoinList(res.data);
-        });
+      await axios.get(`${apiUrl}`).then((res) => {
+        if (!res) return;
+        setTicker(ticker + 1);
+        dispatch(setCoinList(res.data));
+      });
     }, 10000);
 
     return () => {

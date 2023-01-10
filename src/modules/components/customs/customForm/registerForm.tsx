@@ -7,7 +7,7 @@ interface RegisterForm {
   theme: string;
 }
 
-export const RegisterForm = ({ theme }: RegisterForm) => {
+export const RegisterForm: React.FC<RegisterForm> = ({ theme }) => {
   const { onSubmit, handleSubmit, watch, form } = useAuthForm(false);
 
   return (

@@ -9,6 +9,8 @@ interface RouteProps {
 
 export const PublicRoute: React.FC<RouteProps> = ({ children, navigate }) => {
   const { auth } = useSelector((state: RootState) => state.auth);
+
   if (!auth.uid) return children;
+
   return <Navigate to={navigate} />;
 };

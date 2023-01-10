@@ -1,14 +1,15 @@
 import { addDoc, collection, deleteDoc, doc, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from 'modules/db/db';
+import { AddFavoritesProps, FavoritesData } from 'modules/homepage';
 import { RootState } from 'modules/redux/rootReducer';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AddFavoritesProps, FavoritesData } from '../../modules/homepage/coinList/types';
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<Array<FavoritesData>>([]);
   const { auth } = useSelector((state: RootState) => state.auth);
+
   useEffect(() => {
     if (!auth.uid) return;
     const unsub = onSnapshot(

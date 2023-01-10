@@ -5,8 +5,9 @@ import { toggle } from 'modules/redux/theme/themeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const ThemeToggle = ({ className }: { className: string }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const dispatch = useDispatch();
+
   return (
     <div
       className={`page-header-theme ${className}`}

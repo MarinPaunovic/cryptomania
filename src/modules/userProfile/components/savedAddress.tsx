@@ -1,5 +1,5 @@
 import { addDoc, collection } from 'firebase/firestore';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth, db } from 'modules/db/db';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Input } from 'modules/components';
@@ -13,9 +13,10 @@ import { useSearchAddress } from '../hooks/useSearchAddress';
 export const SavedAddress = () => {
   const [isForm, setIsForm] = useState(false);
   const { searchAddresses, handleSearch, isSearch } = useSearchAddress();
+  const { list, isDelete, setIsDelete } = useSavedAddresses();
   const form = useForm<SavedAddressesForm>();
   const { handleSubmit, reset, register, getValues } = form;
-  const { list, isDelete, setIsDelete } = useSavedAddresses();
+
   const setAddAddress = async (data: SavedAddressesFormData) => {
     if (!auth.currentUser) return;
     await addDoc(collection(db, 'savedAddresses'), {
@@ -24,6 +25,7 @@ export const SavedAddress = () => {
       uid: auth.currentUser.uid,
     }).then(() => reset({ name: '', address: '' }));
   };
+
   useEffect(() => {
     if (isDelete) handleSearch(getValues('search'), list);
     setIsDelete(false);

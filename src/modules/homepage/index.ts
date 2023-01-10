@@ -1,2 +1,2 @@
-export * from './coinList';
-export * from './description';
+export * from './components';
+export * from './types';

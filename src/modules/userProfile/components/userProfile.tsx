@@ -9,7 +9,7 @@ import { SavedAddress } from './savedAddress';
 
 export const UserProfile = () => {
   const [whatComponent, setWhatComponent] = useState<JSX.Element | null>(<AccountDetails />);
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const authS = useSelector((state: RootState) => state.auth.auth);
 
   return (

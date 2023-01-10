@@ -2,7 +2,7 @@ import { CoinsArray, CoinSlice } from 'modules/redux/coinList/coinListSlice';
 
 export const handleOrder = ({ coinList, howOrder, whatOrder }: CoinSlice): Array<CoinsArray> => {
   let sortedList: Array<CoinsArray> = [...coinList];
-  console.log(coinList);
+
   if (!whatOrder) {
     sortedList = sortedList.sort((i1, i2) => {
       if (i1 && i2) {

@@ -9,10 +9,10 @@ import { Description } from 'modules/homepage';
 import { handleOrder } from 'shared/functions/handleOrder';
 
 export const Portfolio: React.FC = () => {
-  useCoinList();
-  const { coinList, howOrder, whatOrder } = useSelector((state: RootState) => state.coinList);
   const [favoriteList, setFavoriteList] = useState<Array<CoinsArray>>();
+  const { coinList, howOrder, whatOrder } = useSelector((state: RootState) => state.coinList);
   const { favorites } = useFavorites();
+  useCoinList();
 
   useEffect(() => {
     if (!coinList || !favorites.length) {

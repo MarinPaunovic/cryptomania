@@ -12,8 +12,8 @@ interface UserDropdown {
 }
 
 export const UserDropdown: React.FC<UserDropdown> = ({ setIsUserDropdown, isUserDropdown }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
   const [userImg, setUserImg] = useState<string | null>();
+  const { theme } = useSelector((state: RootState) => state.theme);
   const ref = useOutsideClick<HTMLDivElement>(() => setIsUserDropdown(false));
 
   useEffect(() => {
@@ -25,6 +25,7 @@ export const UserDropdown: React.FC<UserDropdown> = ({ setIsUserDropdown, isUser
       authSub();
     };
   }, []);
+
   return (
     <div className={`user-dropdown-wrapper ${isUserDropdown}`} ref={ref}>
       <div className={`user-dropdown-activate-bg ${isUserDropdown}`}>
