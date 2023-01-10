@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 export const Register = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
+
   return (
     <div className={`login-container fc ${theme}`}>
       <div className={`login-wrapper fc ${theme}`}>

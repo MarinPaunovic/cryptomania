@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: React.FC<Props> = ({ name, isPassword, validate, ...rest }) => {
-  const theme = useSelector((state: RootState) => state.theme.theme);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const {
     register,
     formState: { errors },

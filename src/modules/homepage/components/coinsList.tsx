@@ -7,8 +7,8 @@ import { Coin } from 'shared/components/coin';
 import { RootState } from 'modules/redux/rootReducer';
 
 export const CoinsList = () => {
-  const { coinList } = useSelector((state: RootState) => state.coinList);
   const { searchList } = useSelector((state: RootState) => state.searchList);
+  const { coinList } = useSelector((state: RootState) => state.coinList);
   const dispatch = useDispatch();
   useCoinList();
 
