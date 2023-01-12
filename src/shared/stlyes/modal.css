@@ -35,14 +35,22 @@
   margin-top: 5px;
   font-family: var(--font-family-content);
   font-size: calc(var(--font-size-content) * 0.8);
-  color: rgb(95, 95, 95);
-  filter: brightness(130%);
 }
 .modal-content h4 {
   font-weight: 400;
   color: rgb(95, 95, 95);
   font-size: calc(var(--font-size-content) * 1.6);
   font-family: var(--font-family-content);
+}
+.modal-content .lightTheme {
+  color: rgb(95, 95, 95);
+}
+.modal-content .darkTheme {
+  color: #fff;
+  background-color: transparent;
+}
+.modal-content p.darkTheme {
+  filter: brightness(80%);
 }
 
 .modal-actions {
@@ -82,9 +90,11 @@
   filter: brightness(85%);
 }
 .modal-actions .no {
-  color: rgb(95, 95, 95);
   background-color: var(--background-color-light);
   border: 1px rgb(212, 212, 212) solid;
+}
+.modal-actions .no.darkTheme {
+  color: #fff;
 }
 
 .modal-actions .no:hover {
@@ -93,8 +103,6 @@
 }
 .modal-close {
   align-self: flex-start;
-  color: gray;
-  background-color: transparent;
   border: none;
   margin-left: -5px;
   margin-bottom: 15px;
@@ -103,5 +111,13 @@
 }
 .modal-close:hover {
   cursor: pointer;
-  filter: brightness(50%);
+}
+.modal-close.darkTheme:hover {
+  filter: brightness(70%);
+}
+.modal-close.lightTheme {
+  color: rgb(114, 114, 114);
+}
+.modal-close.lightTheme:hover {
+  color: rgb(46, 46, 46);
 }

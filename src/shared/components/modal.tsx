@@ -20,14 +20,14 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose, onConfi
 
   return ReactDom.createPortal(
     <div className={`modal-overlay ${theme}`}>
-      <div className={`modal-wrapper f ${theme}`} ref={ref}>
-        <div className="modal-content fc">
-          <button className="modal-close f">
+      <div className={`modal-wrapper ${theme}`} ref={ref}>
+        <div className={`modal-content fc`}>
+          <button className={`modal-close f ${theme}`} onClick={onClose}>
             <FontAwesomeIcon icon={faX} />
           </button>
           {children}
           <div className="modal-actions fr">
-            <button onClick={onClose} className="no">
+            <button onClick={onClose} className={`no ${theme}`}>
               No
             </button>
             <button onClick={onConfirm} className="yes">
@@ -37,6 +37,6 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose, onConfi
         </div>
       </div>
     </div>,
-    document.getElementById('modal') as HTMLElement,
+    document.body,
   );
 };

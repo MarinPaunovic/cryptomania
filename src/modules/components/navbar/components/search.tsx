@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearch } from 'shared/hooks/useSearch';
 import { useForm } from 'react-hook-form';
 import { useOutsideClick } from 'shared/hooks/useOutsideClick';
@@ -23,11 +23,15 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
   const [isSearch, setIsSearch] = useState(false);
   const [hover, setHover] = useState<string>('');
   const { theme } = useSelector((state: RootState) => state.theme);
+  const { isModal } = useSelector((state: RootState) => state.modal);
   const { onSubmit, handleSearch, searchList } = useSearch();
   const form = useForm<FormData>();
   const { register } = form;
   const ref = useOutsideClick<HTMLDivElement>(() => {
-    setIsSearch(false);
+    if (!isSearch) {
+      return;
+    }
+    if (!isModal) setIsSearch(false);
   });
 
   return (
@@ -80,7 +84,6 @@ export const Search: React.FC<Search> = ({ isMobile }) => {
                 <div key={i} className="fr">
                   <div
                     onMouseEnter={() => setHover(item.name)}
-                    onMouseLeave={() => console.log(hover)}
                     className={
                       hover.length === 0 && i === 0
                         ? 'search-results-wrapper f first'

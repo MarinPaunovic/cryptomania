@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
 import coinListSlice from './coinList/coinListSlice';
 import searchListSlice from './searchList/searchListSlice';
+import modalSlice from './modal/modalSlice';
 
 const persistConfig = {
   key: 'root',
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   auth: authSlice,
   coinList: coinListSlice,
   searchList: searchListSlice,
+  modal: modalSlice,
 });
 
 export default persistReducer(persistConfig, rootReducer);

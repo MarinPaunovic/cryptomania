@@ -1,9 +1,10 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { setIsModal } from 'modules/redux/modal/modalSlice';
 import { RootState } from 'modules/redux/rootReducer';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFavorites } from 'shared/hooks';
 import { useScrollToggle } from 'shared/hooks/useScrollToggle';
 import { FavoritesProps } from 'shared/types';
@@ -14,17 +15,19 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
   const { favorites, addFavorites } = useFavorites();
   const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch();
 
   useScrollToggle(isOpen);
 
   const onClose = () => {
     setIsOpen(false);
-    console.log('onclose!', isOpen);
+    dispatch(setIsModal(false));
   };
 
   const onConfirm = () => {
     addFavorites({ name: name, uid: auth.uid });
     setIsOpen(false);
+    dispatch(setIsModal(false));
   };
 
   return (
@@ -35,6 +38,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
           if (!auth.uid) return;
           if (favorites.find((fav) => fav.name === name)) {
             setIsOpen(true);
+            dispatch(setIsModal(true));
           }
           if (!favorites.find((fav) => fav.name === name)) {
             addFavorites({ name: name, uid: auth.uid });
@@ -50,8 +54,10 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
       {isOpen && (
         <Modal isOpen onClose={onClose} onConfirm={onConfirm}>
           <>
-            <h4>Remove coin</h4>
-            <p>{`Are you sure that you want to remove ${name} from favorites?`}</p>
+            <h4 className={`${theme}`}>Remove coin</h4>
+            <p
+              className={`${theme}`}
+            >{`Are you sure that you want to remove ${name} from favorites?`}</p>
           </>
         </Modal>
       )}
