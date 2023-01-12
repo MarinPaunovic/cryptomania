@@ -19,7 +19,7 @@ export const CoinsList = () => {
 
   return (
     <ScrollSyncPane>
-      <main className="coin-list-container main-align">
+      <main className="coin-list-container main-align" style={{ overflowY: 'hidden' }}>
         {coinList &&
           coinList.map((item, i: number) => (
             <div key={i}>

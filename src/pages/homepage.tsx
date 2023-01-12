@@ -9,7 +9,7 @@ export const Homepage = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
 
   return (
-    <div className={theme}>
+    <div className={theme} id="homepage">
       <Navbar isRegister={false} isLogin={false} isHomepage={true} />
       <ScrollSync>
         <>

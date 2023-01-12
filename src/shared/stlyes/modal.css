@@ -1,0 +1,107 @@
+.modal-overlay {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(var(--background-color-dark), 0.7);
+}
+
+.modal-wrapper {
+  width: 35rem;
+  z-index: 1000;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px var(--color-cryptomania);
+}
+.modal-wrapper .darkTheme {
+  background-color: rgb(var(--background-color-dark));
+}
+.modal-wrapper .lightTheme {
+  background-color: rgb(var(--background-color-light));
+}
+
+.modal-content {
+  padding-inline: 15px;
+  padding-block: 35px;
+  width: 95%;
+  margin-inline: auto;
+}
+.modal-content p {
+  margin-top: 5px;
+  font-family: var(--font-family-content);
+  font-size: calc(var(--font-size-content) * 0.8);
+  color: rgb(95, 95, 95);
+  filter: brightness(130%);
+}
+.modal-content h4 {
+  font-weight: 400;
+  color: rgb(95, 95, 95);
+  font-size: calc(var(--font-size-content) * 1.6);
+  font-family: var(--font-family-content);
+}
+
+.modal-actions {
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.modal-actions button {
+  font-size: calc(var(--font-size-button) * 1.25);
+  padding-block: 15px;
+  padding-inline: 100px;
+  border-radius: 5px;
+}
+
+.modal-actions .yes {
+  position: relative;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: none;
+}
+.modal-actions .yes::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: var(--color-cryptomania);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+.modal-actions .yes:hover {
+  cursor: pointer;
+}
+.modal-actions .yes:hover::before {
+  filter: brightness(85%);
+}
+.modal-actions .no {
+  color: rgb(95, 95, 95);
+  background-color: var(--background-color-light);
+  border: 1px rgb(212, 212, 212) solid;
+}
+
+.modal-actions .no:hover {
+  cursor: pointer;
+  border-color: var(--color-cryptomania);
+}
+.modal-close {
+  align-self: flex-start;
+  color: gray;
+  background-color: transparent;
+  border: none;
+  margin-left: -5px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: var(--font-family-content);
+}
+.modal-close:hover {
+  cursor: pointer;
+  filter: brightness(50%);
+}
