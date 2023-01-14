@@ -4,13 +4,15 @@ import { RootState } from 'modules/redux/rootReducer';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AccountDetails } from './accountDetails';
-import { Portfolio } from './portfolio';
+import { Watchlist } from './watchlist';
 import { SavedAddress } from './savedAddress';
+import { usePortfolioCleanup } from 'shared/hooks/usePortfolioCleanup';
 
 export const UserProfile = () => {
   const [whatComponent, setWhatComponent] = useState<JSX.Element | null>(<AccountDetails />);
   const { theme } = useSelector((state: RootState) => state.theme);
   const authS = useSelector((state: RootState) => state.auth.auth);
+  usePortfolioCleanup();
 
   return (
     <div className={`${theme}`}>
@@ -39,10 +41,10 @@ export const UserProfile = () => {
               Saved adresses
             </button>
             <button
-              onClick={() => setWhatComponent(<Portfolio />)}
+              onClick={() => setWhatComponent(<Watchlist />)}
               className={whatComponent == null ? `focus ${theme}` : `${theme}`}
             >
-              Portfolio
+              Watchlist
             </button>
             <button className={theme} onClick={() => signOut(auth)}>
               Logout

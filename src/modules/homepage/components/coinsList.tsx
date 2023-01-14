@@ -5,12 +5,14 @@ import { setSearchList } from 'modules/redux/searchList/searchListSlice';
 import { useCoinList } from 'shared/hooks/useCoinList';
 import { Coin } from 'shared/components/coin';
 import { RootState } from 'modules/redux/rootReducer';
+import { usePortfolioCleanup } from 'shared/hooks/usePortfolioCleanup';
 
 export const CoinsList = () => {
   const { searchList } = useSelector((state: RootState) => state.searchList);
   const { coinList } = useSelector((state: RootState) => state.coinList);
   const dispatch = useDispatch();
   useCoinList();
+  usePortfolioCleanup();
 
   useEffect(() => {
     if (!coinList || searchList.length) return;

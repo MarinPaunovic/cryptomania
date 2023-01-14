@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-
 import { ScrollSyncPane } from 'react-scroll-sync';
 import { setHowOrder, setOrderCoinList, setWhatOrder } from 'modules/redux/coinList/coinListSlice';
 import { useEffect, useRef } from 'react';
@@ -7,9 +6,10 @@ import { RootState } from 'modules/redux/rootReducer';
 
 export const Description = () => {
   const { whatOrder, howOrder } = useSelector((state: RootState) => state.coinList);
+  const { active } = useSelector((state: RootState) => state.portfolio);
   const { theme } = useSelector((state: RootState) => state.theme);
-  const dispatch = useDispatch();
   const firstRender = useRef(false);
+  const dispatch = useDispatch();
 
   const handleClick = (what: string) => {
     dispatch(setWhatOrder(what));
@@ -60,7 +60,14 @@ export const Description = () => {
             Coin
           </button>
         </div>
-        <div className="coin-description-price-wrapper g" id="scrollSyncDescription">
+        <div
+          className={
+            active === 'portfolio'
+              ? 'coin-description-price-wrapper g portfolio-active'
+              : 'coin-description-price-wrapper g'
+          }
+          id="scrollSyncDescription"
+        >
           <button
             className={`coin-description-price ${theme}`}
             onClick={() => {
@@ -93,6 +100,9 @@ export const Description = () => {
           >
             7d
           </button>
+          {active === 'portfolio' && (
+            <button className={`portfolio-holdings f asc jsc ${theme}`}>Holdings</button>
+          )}
         </div>
       </div>
     </ScrollSyncPane>
