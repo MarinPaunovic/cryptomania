@@ -1,5 +1,5 @@
 export * from './userProfile';
 export * from './accountDetails';
-export * from './portfolio';
+export * from './watchlist';
 export * from './savedAddress';
 export * from './savedAddressActions';
