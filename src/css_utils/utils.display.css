@@ -15,7 +15,12 @@
 .aic {
   align-items: center;
 }
-
+.asc {
+  align-self: center;
+}
+.jsc {
+  justify-self: center;
+}
 .jcsbetween {
   justify-content: space-between;
 }
