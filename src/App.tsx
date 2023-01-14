@@ -10,6 +10,7 @@ import { setLogin } from 'modules/redux/auth/auth';
 import { PrivateRoute } from 'modules/router/privateRoute';
 import UserProfilePage from 'pages/userProfile';
 import { PublicRoute } from 'modules/router/publicRoute';
+import { PortfolioPage } from 'pages/portfolioPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,17 @@ function App() {
                 message={'You have to be logged in to enter this page. Redirecting..'}
               >
                 <UserProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/portfolio"
+            element={
+              <PrivateRoute
+                navigate="/portfolio"
+                message="You have to be logged in to enter this page. Redirecting.."
+              >
+                <PortfolioPage />
               </PrivateRoute>
             }
           />
