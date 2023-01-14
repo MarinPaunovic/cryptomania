@@ -1,0 +1,9 @@
+.summary-wrapper {
+  background-color: gray;
+  width: fit-content;
+  border-radius: 10px;
+}
+.summary-content {
+  padding-block: 25px;
+  padding-inline: 35px;
+}
