@@ -17,6 +17,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
   const { auth } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
   useScrollToggle(isOpen, 'homepage');
+  useScrollToggle(isOpen, 'portfolio');
 
   const onClose = () => {
     setIsOpen(false);
