@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { setIsModal } from 'modules/redux/modal/modalSlice';
+import { setIsModal } from 'modules/redux/slices/modalSlice';
 import { RootState } from 'modules/redux/rootReducer';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,8 +16,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
   const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
-
-  useScrollToggle(isOpen);
+  useScrollToggle(isOpen, 'homepage');
 
   const onClose = () => {
     setIsOpen(false);
@@ -28,6 +27,14 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
     addFavorites({ name: name, uid: auth.uid });
     setIsOpen(false);
     dispatch(setIsModal(false));
+  };
+
+  const modalProps = {
+    isOpen,
+    onClose: () => onClose(),
+    onConfirm: () => onConfirm(),
+    buttonNegative: 'No',
+    buttonPositive: 'Yes',
   };
 
   return (
@@ -52,7 +59,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
         )}
       </button>
       {isOpen && (
-        <Modal isOpen onClose={onClose} onConfirm={onConfirm}>
+        <Modal {...modalProps}>
           <>
             <h4 className={`${theme}`}>Remove coin</h4>
             <p
