@@ -6,7 +6,7 @@ import RegisterPage from './pages/register';
 import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from 'modules/db/db';
-import { setLogin } from 'modules/redux/auth/auth';
+import { setLogin } from 'modules/redux/slices/auth';
 import { PrivateRoute } from 'modules/router/privateRoute';
 import UserProfilePage from 'pages/userProfile';
 import { PublicRoute } from 'modules/router/publicRoute';
