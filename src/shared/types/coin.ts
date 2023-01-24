@@ -1,4 +1,4 @@
-import { CoinsArray } from 'modules/redux/coinList/coinListSlice';
+import { CoinsArray } from 'modules/redux/slices/coinListSlice';
 
 export interface CoinProps {
   item: CoinsArray;

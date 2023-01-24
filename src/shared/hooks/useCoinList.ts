@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setCoinList } from 'modules/redux/coinList/coinListSlice';
+import { setCoinList } from 'modules/redux/slices/coinListSlice';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
