@@ -1,4 +1,4 @@
-import { setResetTotalBalance, setTotalBalance } from 'modules/redux/slices/totalBalance';
+import { setTotalBalance } from 'modules/redux/slices/totalBalance';
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { UseTotalBalanceProps } from '../types';

@@ -1,6 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearch } from 'shared/hooks/useSearch';
 import { useForm } from 'react-hook-form';
 import { useOutsideClick } from 'shared/hooks/useOutsideClick';
