@@ -7,7 +7,7 @@ export const PortfolioPage = () => {
   const { theme } = useSelector((state: RootState) => state.theme);
 
   return (
-    <div className={`portfolio fc jcsbetween ${theme}`}>
+    <div className={`portfolio fc jcsbetween ${theme}`} id={'portfolio'}>
       <Navbar />
       <PortfolioWrapper />
       <Footer />
