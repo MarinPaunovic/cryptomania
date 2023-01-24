@@ -2,7 +2,7 @@ import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 import { useFavorites } from 'shared';
 import { useEffect, useState } from 'react';
-import { CoinsArray } from 'modules/redux/coinList/coinListSlice';
+import { CoinsArray } from 'modules/redux/slices/coinListSlice';
 import { useCoinList } from 'shared/hooks/useCoinList';
 import { Coin } from 'shared/components/coin';
 import { Description } from 'modules/homepage';
