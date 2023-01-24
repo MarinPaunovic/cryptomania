@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ScrollSyncPane } from 'react-scroll-sync';
-import { setHowOrder, setOrderCoinList, setWhatOrder } from 'modules/redux/coinList/coinListSlice';
+import { setHowOrder, setOrderCoinList, setWhatOrder } from 'modules/redux/slices/coinListSlice';
 import { useEffect, useRef } from 'react';
 import { RootState } from 'modules/redux/rootReducer';
 
