@@ -1,4 +1,4 @@
-import { setActive } from 'modules/redux/portfolio/portfolioSlice';
+import { setActive } from 'modules/redux/slices/portfolioSlice';
 import { RootState } from 'modules/redux/rootReducer';
 import { Watchlist } from 'modules/userProfile';
 import { useDispatch, useSelector } from 'react-redux';
