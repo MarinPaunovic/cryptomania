@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ScrollSyncPane } from 'react-scroll-sync';
-import { setSearchList } from 'modules/redux/searchList/searchListSlice';
+import { setSearchList } from 'modules/redux/slices/searchListSlice';
 import { useCoinList } from 'shared/hooks/useCoinList';
 import { Coin } from 'shared/components/coin';
 import { RootState } from 'modules/redux/rootReducer';
