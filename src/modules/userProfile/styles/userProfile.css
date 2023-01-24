@@ -1,7 +1,7 @@
 .user-profile-wrapper {
   grid-template-columns: 19% auto 79%;
   position: relative;
-  height: calc(100vh - 70px - 380px);
+  min-height: calc(100vh - 70px - 200px);
 }
 .user-profile-menu {
   height: 87%;

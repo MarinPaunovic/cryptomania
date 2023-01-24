@@ -1,44 +1,72 @@
 .footer {
   background-color: rgb(24, 24, 24);
+  padding-block: 1.5rem;
 }
 
-.footer-wrapper {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  min-height: 380px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 85rem;
+.footer__wrapper {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 300px;
+  gap: 10px;
   color: rgb(215, 215, 215);
-  padding-bottom: 1.25rem;
-  padding-top: 1.25rem;
 }
 
-.footer-title {
+.footer__title {
   max-width: 30rem;
-  grid-column-start: span 2;
-  grid-column-end: span 2;
 }
 
-.footer-title-title {
-  align-items: center;
-}
-
-.footer-title-image {
+.footer__title-img {
   width: calc(var(--font-size-title) * 1.5);
 }
 
-.footer-title-name {
+.footer__title-name {
   font-size: calc(var(--font-size-title));
   font-family: cursive;
 }
 
-.footer-title-copyright {
+.footer__copyright {
   margin-top: 5rem;
 }
-.footer-title-description {
+
+.footer__description {
+  height: 100%;
   text-align: left;
   font-size: var(--font-size-content);
   margin-top: 0.5rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer__social-links {
+  text-align: center;
+}
+
+.footer__social-btn {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-cryptomania);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 50px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.footer__social-btn:hover {
+  background-color: red;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer__community {
+  align-self: flex-end;
+}
+
+.footer__social-links {
+  margin-top: 2rem;
+}
+.footer_explore-title {
+  font-size: var(--font-size-title);
+  align-self: center;
+  text-align: center;
 }
