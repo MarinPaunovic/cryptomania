@@ -1,14 +1,28 @@
-import { faPlus, faX } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Amount, HoldingsModal } from 'modules/portfolio';
 import { RootState } from 'modules/redux/rootReducer';
 import { useSelector } from 'react-redux';
 import { CoinProps } from 'shared/types';
 import { Favorites } from './favorites';
+import { useState, useEffect } from 'react';
 
 export const Coin: React.FC<CoinProps> = ({ item }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [amount, setAmount] = useState<number>(0);
+  const { holdings } = useSelector((state: RootState) => state.holdings);
   const { active } = useSelector((state: RootState) => state.portfolio);
   const { theme } = useSelector((state: RootState) => state.theme);
   const { auth } = useSelector((state: RootState) => state.auth);
+
+  useEffect(() => {
+    const find = holdings.find((holding) => holding.what === item.name);
+    if (find && find.amount) {
+      setAmount(find.amount);
+      return;
+    }
+    setAmount(0);
+  }, [holdings, item.name, amount]);
 
   return (
     <div className={`coin-list-wrapper ${theme}`}>
@@ -63,14 +77,20 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
           {Math.round(item.price_change_percentage_7d_in_currency * 10) / 10}%
         </div>
         {active === 'portfolio' && (
-          <button
-            className={`portfolio-add f asc jsc ${theme}`}
-            onClick={() => console.log('dodaj', item.name)}
-          >
+          <Amount amount={amount} tag={item.symbol} price={item.current_price} />
+        )}
+        {active === 'portfolio' && (
+          <button className={`portfolio-add f asc jsc ${theme}`} onClick={() => setIsOpen(true)}>
             <FontAwesomeIcon icon={faPlus} />
           </button>
         )}
       </div>
+      <HoldingsModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        what={item.name}
+        price={item.current_price}
+      />
     </div>
   );
 };
