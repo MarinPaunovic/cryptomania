@@ -31,11 +31,7 @@
   width: 95%;
   margin-inline: auto;
 }
-.modal-content p {
-  margin-top: 5px;
-  font-family: var(--font-family-content);
-  font-size: calc(var(--font-size-content) * 0.8);
-}
+
 .modal-content h4 {
   font-weight: 400;
   color: rgb(95, 95, 95);
