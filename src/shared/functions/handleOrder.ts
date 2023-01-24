@@ -1,4 +1,4 @@
-import { CoinsArray, CoinSlice } from 'modules/redux/coinList/coinListSlice';
+import { CoinsArray, CoinSlice } from 'modules/redux/slices/coinListSlice';
 
 const defaultOrder = (sortedList: Array<CoinsArray>) => {
   return sortedList.sort((i1, i2) => {
