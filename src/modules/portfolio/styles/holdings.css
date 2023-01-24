@@ -1,0 +1,35 @@
+.amount-input-wrapper {
+  position: relative;
+}
+.price-input,
+.amount-input {
+  border-radius: 7px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  outline: none;
+}
+
+.amount-input {
+  -moz-appearance: textfield;
+  padding-right: 65px;
+}
+.amount-input::-webkit-outer-spin-button,
+.amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amount-what {
+  line-height: 20px;
+  font-size: 21px;
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  padding: 10px;
+  right: 0px;
+  color: rgba(31, 41, 55, 1);
+  font-family: 'Open Sans';
+  font-weight: 500;
+}
