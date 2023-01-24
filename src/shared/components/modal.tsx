@@ -4,15 +4,16 @@ import { RootState } from 'modules/redux/rootReducer';
 import ReactDom from 'react-dom';
 import { useSelector } from 'react-redux';
 import { useOutsideClick } from 'shared/hooks';
+import { ModalWrapper } from 'shared/types';
 
-interface ModalProps {
-  children: JSX.Element;
-  isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-}
-
-export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose, onConfirm }) => {
+export const Modal: React.FC<ModalWrapper> = ({
+  children,
+  isOpen,
+  buttonNegative,
+  buttonPositive,
+  onClose,
+  onConfirm,
+}) => {
   const { theme } = useSelector((state: RootState) => state.theme);
   const ref = useOutsideClick<HTMLDivElement>(onClose);
 
@@ -28,10 +29,10 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose, onConfi
           {children}
           <div className="modal-actions fr">
             <button onClick={onClose} className={`no ${theme}`}>
-              No
+              {buttonNegative}
             </button>
             <button onClick={onConfirm} className="yes">
-              Yes
+              {buttonPositive}
             </button>
           </div>
         </div>
