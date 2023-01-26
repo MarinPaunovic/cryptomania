@@ -7,6 +7,7 @@
   box-sizing: border-box;
   overflow-y: hidden;
   min-height: calc(100vh - 70px - 57.59px - 380px - 16px - 32px);
+  padding-bottom: 5rem;
 }
 .coin-list-container::-webkit-scrollbar {
   display: none;
