@@ -14,7 +14,7 @@ const persistConfig = {
   key: 'root',
   storage,
   whiltelist: ['theme', 'auth', 'portfolio'],
-  blacklist: ['coinList', 'totalBalance'],
+  blacklist: ['coinList', 'holdings'],
 };
 
 const rootReducer = combineReducers({
