@@ -30,13 +30,13 @@ const coinListSlice = createSlice({
     coinList: [],
   } as CoinSlice,
   reducers: {
-    setCoinList(state, action) {
+    setCoinList(state, action: { payload: Array<CoinsArray> }) {
       if (!state.whatOrder) {
         state.coinList = action.payload;
         return;
       }
       const orderedList = handleOrder({
-        coinList: current(state.coinList),
+        coinList: action.payload,
         howOrder: state.howOrder,
         whatOrder: state.whatOrder,
       });
