@@ -1,9 +1,17 @@
-.summary-wrapper {
-  background-color: gray;
+.summary__wrapper {
   width: fit-content;
-  border-radius: 10px;
+  gap: 1.5rem;
 }
-.summary-content {
+.summary__box {
+  width: fit-content;
+  background-color: rgb(59, 59, 59);
+  border-radius: 10px;
   padding-block: 25px;
-  padding-inline: 35px;
+  padding-inline: 25px;
+}
+.summary__box-title--loss {
+  color: rgb(255, 0, 0);
+}
+.summary__box-title--profit {
+  color: #00e200;
 }
