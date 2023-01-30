@@ -4,3 +4,7 @@ export * from './useHoldings';
 export * from './useTags';
 export * from './useCoinRatio';
 export * from './useIsZero';
+export * from './useOneDayChange';
+export * from './useGetTotalBalance';
+export * from './useTotalProfit';
+export * from './useGetSingleValue';
