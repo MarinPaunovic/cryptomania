@@ -26,7 +26,7 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
 
   return (
     <div className={`coin-list-wrapper ${theme}`}>
-      <div className={`coin-list-description-wrapper g`}>
+      <div className={`coin-list-description-wrapper g ${theme}`}>
         {!auth.uid ? <></> : <Favorites name={item.name} />}
         <div className="coin-list-rank">{item.market_cap_rank}</div>
         <div className="coin-list-name-wrapper">
