@@ -29,9 +29,6 @@ export const Description = () => {
       return;
     }
     return () => {
-      if (!firstRender.current) {
-        return;
-      }
       dispatch(setWhatOrder(''));
       dispatch(setHowOrder('asc'));
       dispatch(setOrderCoinList());
@@ -63,7 +60,7 @@ export const Description = () => {
         <div
           className={
             active === 'portfolio'
-              ? 'coin-description-price-wrapper g portfolio-active'
+              ? 'coin-description-price-wrapper g portfolio--active'
               : 'coin-description-price-wrapper g'
           }
           id="scrollSyncDescription"
@@ -101,7 +98,7 @@ export const Description = () => {
             7d
           </button>
           {active === 'portfolio' && (
-            <button className={`portfolio-holdings f asc jsc ${theme}`}>Holdings</button>
+            <button className={`portfolio__wrapper-holdings f asc jsc ${theme}`}>Holdings</button>
           )}
         </div>
       </div>
