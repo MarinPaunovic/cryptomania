@@ -2,32 +2,32 @@
   min-height: 100vh;
 }
 
-.portfolio-wrapper {
+.portfolio__wrapper {
   min-height: calc(100vh - 70px - 200px);
   width: 100%;
 }
-.portfolio-wrapper .portfolio-favorites {
-  max-width: 90%;
-  margin-inline: auto;
+.portfolio__actions {
+  padding-block: 1.5rem;
 }
-.portfolio-wrapper .watchlist {
+
+.portfolio__wrapper .watchlist {
   margin-bottom: 50px;
 }
 
-.portfolio-active {
+.portfolio--active {
   grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr 0.8fr 0.2fr;
 }
 
-.portfolio-add,
-.portfolio-holdings {
+.portfolio__wrapper-add,
+.portfolio__wrapper-holdings {
   border: none;
   height: fit-content;
   width: fit-content;
   font-size: var(--font-size-button);
 }
 
-.portfolio-add:hover,
-.portfolio-holdings:hover {
+.portfolio__wrapper-add:hover,
+.portfolio__wrapper-holdings:hover {
   cursor: pointer;
   opacity: 0.7;
 }
