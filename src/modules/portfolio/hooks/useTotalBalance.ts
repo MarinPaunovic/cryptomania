@@ -1,33 +1,31 @@
-import { setTotalBalance } from 'modules/redux/slices/totalBalance';
-import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { UseTotalBalanceProps } from '../types';
+import { RootState } from 'modules/redux/rootReducer';
+import { setResetTotalBalance, setTotalBalance } from 'modules/redux/slices/totalBalance';
+import { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const useTotalBalance = ({ amount, price }: UseTotalBalanceProps) => {
-  const [singleHoldingValue, setSingleHoldingValue] = useState<number>(0);
-  const [prevPrice, setPrevPrice] = useState(0);
+export const useTotalBalance = () => {
+  const { coinList } = useSelector((state: RootState) => state.coinList);
+  const { holdings } = useSelector((state: RootState) => state.holdings);
   const dispatch = useDispatch();
   const firstRender = useRef(true);
 
   useEffect(() => {
-    if (!amount) return;
-    const multiply = amount * price;
     if (firstRender.current) {
-      setPrevPrice(price);
-      dispatch(setTotalBalance({ amount: multiply }));
-      setSingleHoldingValue(multiply);
       firstRender.current = false;
       return;
     }
-    if (prevPrice !== price) {
-      dispatch(setTotalBalance({ amount: prevPrice * amount, minus: true }));
-      setSingleHoldingValue(multiply);
-      dispatch(setTotalBalance({ amount: multiply }));
-      setPrevPrice(price);
-      return;
+    if (coinList.length && holdings.length) {
+      let balanceL = 0;
+      holdings.map((holding) => {
+        if (!coinList) return;
+        const find = coinList.find((coin) => coin.name === holding.what);
+        if (!find) return;
+        balanceL = balanceL + find.current_price * holding.amount;
+        dispatch(setResetTotalBalance());
+        dispatch(setTotalBalance({ amount: balanceL }));
+      });
     }
-    setSingleHoldingValue(amount * price);
-  }, [dispatch, amount, price, prevPrice]);
+  }, [dispatch, holdings, coinList]);
 
-  return { singleHoldingValue };
+  return;
 };
