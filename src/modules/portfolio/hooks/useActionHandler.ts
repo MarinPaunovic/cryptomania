@@ -1,7 +1,6 @@
 import { addDoc, collection, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from 'modules/db/db';
 import { RootState } from 'modules/redux/rootReducer';
-import { setTotalBalance } from 'modules/redux/slices/totalBalance';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Holdings } from './useHoldings';
@@ -31,7 +30,6 @@ export const useActionHandler = (isBuy?: boolean) => {
     }).then(() => {
       setIsOpen(false);
       setAmount(0);
-      dispatch(setTotalBalance({ amount: amount * holdings[index].price, minus: true }));
     });
   };
 
@@ -41,7 +39,6 @@ export const useActionHandler = (isBuy?: boolean) => {
     }).then(() => {
       setIsOpen(false);
       setAmount(0);
-      dispatch(setTotalBalance({ amount: amount * holdings[index].price }));
     });
   };
 
@@ -67,7 +64,6 @@ export const useActionHandler = (isBuy?: boolean) => {
           deleteDoc(doc(db, 'holdings', holdings[index].id));
           setIsOpen(false);
           setAmount(0);
-          dispatch(setTotalBalance({ amount: amount * holdings[index].price, minus: true }));
           return;
         }
         subtract({ holdings, amount, index, setIsOpen });
