@@ -11,20 +11,29 @@ export const PortfolioWrapper = () => {
 
   return (
     <div className={`portfolio__wrapper main-align ${theme}`}>
-      <div className="portfolio__actions fr jcc">
+      <div className={`portfolio__actions fr main-align ${theme}`}>
         {active === 'watchlist' ? (
-          <h1>Watchlist</h1>
-        ) : (
-          <button onClick={() => dispatch(setActive('watchlist'))}>Watchlist</button>
-        )}
-        {active === 'portfolio' ? (
-          <h1 className="portfolio__actions-title">My Portfolio</h1>
+          <h1 className="portfolio__actions-title portfolio__actions-title--active ffam-content">
+            Watchlist
+          </h1>
         ) : (
           <button
-            className="portfolio__actions-button"
+            className={`portfolio__actions-button ${theme}`}
+            onClick={() => dispatch(setActive('watchlist'))}
+          >
+            Watchlist
+          </button>
+        )}
+        {active === 'portfolio' ? (
+          <h1 className="portfolio__actions-title portfolio__actions-title--active ffam-content">
+            My Portfolio
+          </h1>
+        ) : (
+          <button
+            className={`portfolio__actions-button ${theme}`}
             onClick={() => dispatch(setActive('portfolio'))}
           >
-            Portfolio
+            My Portfolio
           </button>
         )}
       </div>

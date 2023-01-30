@@ -6,14 +6,6 @@
   min-height: calc(100vh - 70px - 200px);
   width: 100%;
 }
-.portfolio__actions {
-  padding-block: 1.5rem;
-}
-
-.portfolio__wrapper .watchlist {
-  margin-bottom: 50px;
-}
-
 .portfolio--active {
   grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr 0.8fr 0.2fr;
 }
@@ -30,4 +22,62 @@
 .portfolio__wrapper-holdings:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+.portfolio__actions {
+  width: fit-content;
+  margin-block: 1rem;
+}
+
+.portfolio__actions.darkTheme {
+  background-color: rgb(59, 59, 59);
+}
+.portfolio__actions-button.darkTheme {
+  background-color: rgb(59, 59, 59);
+}
+.portfolio__actions-button.darkTheme:hover {
+  color: rgb(185, 185, 185);
+}
+
+.portfolio__actions-title {
+  text-align: center;
+  width: 250px;
+  padding: 1.5rem;
+  position: relative;
+  font-size: calc(var(--font-size-button) * 1.5);
+}
+
+.portfolio__actions-button {
+  width: 250px;
+  padding: 1.5rem;
+  position: relative;
+  border: none;
+  font-size: calc(var(--font-size-button) * 1.5);
+}
+
+.portfolio__actions-button:hover {
+  cursor: pointer;
+}
+
+.portfolio__actions-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-cryptomania);
+}
+.portfolio__actions-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(156, 156, 156);
+}
+
+.portfolio__actions-title--active {
+  color: var(--color-cryptomania);
 }
