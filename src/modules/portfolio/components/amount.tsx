@@ -1,12 +1,11 @@
 import { AmountProps } from '../types';
 import { useCoinRatio } from '../hooks/useCoinRatio';
-import { useTotalBalance } from '../hooks';
+import { useGetSingleValue } from '../hooks';
 
 export const Amount: React.FC<AmountProps> = ({ amount, tag, price }) => {
   const hookProps = { amount, price };
-  const { singleHoldingValue } = useTotalBalance(hookProps);
+  const { singleValue: singleHoldingValue } = useGetSingleValue({ amount, price });
   const { ratio } = useCoinRatio(hookProps);
-
   const fiatValueFloor = singleHoldingValue && Math.floor(singleHoldingValue * 100) / 100;
 
   if (!amount)
