@@ -10,17 +10,22 @@ export const PortfolioWrapper = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className={`portfolio-wrapper main-align ${theme}`}>
-      <div className="portfolio-actions fr jcc">
+    <div className={`portfolio__wrapper main-align ${theme}`}>
+      <div className="portfolio__actions fr jcc">
         {active === 'watchlist' ? (
           <h1>Watchlist</h1>
         ) : (
           <button onClick={() => dispatch(setActive('watchlist'))}>Watchlist</button>
         )}
         {active === 'portfolio' ? (
-          <h1>My Portfolio</h1>
+          <h1 className="portfolio__actions-title">My Portfolio</h1>
         ) : (
-          <button onClick={() => dispatch(setActive('portfolio'))}>Portfolio</button>
+          <button
+            className="portfolio__actions-button"
+            onClick={() => dispatch(setActive('portfolio'))}
+          >
+            Portfolio
+          </button>
         )}
       </div>
       {active === 'watchlist' ? <Watchlist /> : <Portfolio />}
