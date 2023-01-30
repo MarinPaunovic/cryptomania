@@ -28,6 +28,24 @@
 }
 
 @media only screen and (max-width: 940px) {
+  .footer__wrapper {
+    grid-template-columns: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+  }
+  .footer__community {
+    align-self: center;
+    margin-bottom: 3rem;
+  }
+  .footer__copyright {
+    position: absolute;
+    bottom: 0px;
+    right: 50%;
+    transform: translate(50%, 0%);
+  }
+
   .coin-list-description-wrapper,
   .coin-description-wrapper {
     position: sticky;
@@ -100,6 +118,9 @@
     display: flex;
     flex-direction: column;
   }
+  .dropdown-menu.open {
+    padding-top: 5rem;
+  }
   .page-header-button-small {
     display: inline-block;
   }
@@ -107,9 +128,6 @@
     position: absolute;
     top: 35px;
     right: 15px;
-  }
-  .dropdown-menu.open {
-    padding-top: 5rem;
   }
 }
 
