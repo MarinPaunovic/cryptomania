@@ -2,7 +2,7 @@ export interface useCoinRatioProps {
   amount: number;
   price: number;
 }
-export type UseTotalBalanceProps = useCoinRatioProps;
+export type UseGetSingleValueProps = useCoinRatioProps;
 
 export interface UseIsZeroProps {
   what: string;
