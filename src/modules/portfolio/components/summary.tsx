@@ -1,16 +1,42 @@
-import { RootState } from 'modules/redux/rootReducer';
-import { useSelector } from 'react-redux';
+import { useOneDayChange, useTotalProfit } from '../hooks';
+import { useGetTotalBalance } from '../hooks/useGetTotalBalance';
 
 export const Summary = () => {
-  const { balance } = useSelector((state: RootState) => state.totalBalance);
-  const { holdings } = useSelector((state: RootState) => state.holdings);
+  const { totalProfit, profitRatio } = useTotalProfit();
+  const { totalBalance } = useGetTotalBalance();
+  const { price24h, ratio24h } = useOneDayChange();
 
   return (
-    <div className="summary-wrapper">
-      <div className="summary-content">
-        <div>total balance ${Math.floor(balance * 100) / 100}</div>
-        <div>24h chance</div>
-        <div>total profit loss</div>
+    <div className="summary__wrapper fr ffam-content">
+      <div className="summary__box">
+        <h3>{totalBalance == '' ? 'Loading..' : totalBalance}</h3>
+        <span className="summary__box-title ffam-content">Total balance</span>
+      </div>
+      <div className="summary__box">
+        <h3>{price24h == '' ? 'Loading..' : price24h}</h3>
+        <span className="summary__box-title ffam-content">
+          24h change
+          <span
+            className={
+              price24h.includes('-') ? 'summary__box-title--loss' : 'summary__box-title--profit'
+            }
+          >
+            ({ratio24h.toFixed(2)}%)
+          </span>
+        </span>
+      </div>
+      <div className="summary__box">
+        <h3>{totalProfit == '' ? 'Loading..' : totalProfit}</h3>
+        <div className="summary__box-title ffam-content">
+          Total profit loss{' '}
+          <span
+            className={
+              totalProfit.includes('-') ? 'summary__box-title--loss' : 'summary__box-title--profit'
+            }
+          >
+            ({profitRatio.toFixed(2)}%)
+          </span>
+        </div>
       </div>
     </div>
   );
