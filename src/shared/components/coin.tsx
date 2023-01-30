@@ -22,11 +22,11 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
       return;
     }
     setAmount(0);
-  }, [holdings, item.name, amount]);
+  }, [holdings, item, amount]);
 
   return (
     <div className={`coin-list-wrapper ${theme}`}>
-      <div className={`coin-list-description-wrapper g ${theme}`}>
+      <div className={`coin-list-description-wrapper g`}>
         {!auth.uid ? <></> : <Favorites name={item.name} />}
         <div className="coin-list-rank">{item.market_cap_rank}</div>
         <div className="coin-list-name-wrapper">
@@ -40,7 +40,7 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
       <div
         className={
           active === 'portfolio'
-            ? 'coin-list-price-wrapper g portfolio-active'
+            ? 'coin-list-price-wrapper g portfolio--active'
             : 'coin-list-price-wrapper g'
         }
         id="scrollSyncList"
@@ -80,7 +80,10 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
           <Amount amount={amount} tag={item.symbol} price={item.current_price} />
         )}
         {active === 'portfolio' && (
-          <button className={`portfolio-add f asc jsc ${theme}`} onClick={() => setIsOpen(true)}>
+          <button
+            className={`portfolio__wrapper-add f asc jsc ${theme}`}
+            onClick={() => setIsOpen(true)}
+          >
             <FontAwesomeIcon icon={faPlus} />
           </button>
         )}
