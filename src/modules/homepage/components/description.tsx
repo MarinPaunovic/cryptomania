@@ -98,7 +98,7 @@ export const Description = () => {
             7d
           </button>
           {active === 'portfolio' && (
-            <button className={`portfolio__wrapper-holdings f asc jsc ${theme}`}>Holdings</button>
+            <button className={`portfolio__wrapper-holdings f asc jsfe ${theme}`}>Holdings</button>
           )}
         </div>
       </div>
