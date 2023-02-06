@@ -20,9 +20,9 @@ export const HamburgerIcon: React.FC<Props> = ({ menuToggle, setMenuToggle, them
         } else setMenuToggle('closed');
       }}
     >
-      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}>t</span>
-      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}>z</span>
-      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}>s</span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
+      <span className={`${theme === 'lightTheme' ? 'darkTheme' : 'lightTheme'}`}></span>
     </div>
   );
 };
