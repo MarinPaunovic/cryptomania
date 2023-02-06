@@ -4,7 +4,6 @@
 }
 .summary__box {
   width: fit-content;
-  background-color: rgb(59, 59, 59);
   border-radius: 10px;
   padding-block: 25px;
   padding-inline: 25px;
@@ -14,4 +13,11 @@
 }
 .summary__box-title--profit {
   color: #00e200;
+}
+
+.summary__box.darkTheme {
+  background-color: rgb(59, 59, 59);
+}
+.summary__box.lightTheme {
+  background-color: rgb(215, 215, 215);
 }
