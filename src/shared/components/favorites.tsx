@@ -64,7 +64,7 @@ export const Favorites: React.FC<FavoritesProps> = ({ name }) => {
           <>
             <h4 className={`${theme}`}>Remove coin</h4>
             <p
-              className={`${theme}`}
+              className={`${theme} ffam-content`}
             >{`Are you sure that you want to remove ${name} from favorites?`}</p>
           </>
         </Modal>
