@@ -21,6 +21,9 @@
 .jsc {
   justify-self: center;
 }
+.jsfe {
+  justify-self: flex-end;
+}
 .jcsbetween {
   justify-content: space-between;
 }
