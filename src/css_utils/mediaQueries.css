@@ -28,7 +28,17 @@
 }
 
 @media only screen and (max-width: 940px) {
-  .footer__wrapper {
+  .saved-addresses-list {
+    width: 100%;
+  }
+  .saved-address-form input,
+  .saved-address-form h3 {
+    min-width: 70%;
+  }
+  .coin-list-description-wrapper {
+    overflow-x: auto;
+  }
+  .footer .footer__wrapper {
     grid-template-columns: none;
     display: flex;
     flex-direction: column;
@@ -41,6 +51,7 @@
   }
   .footer__copyright {
     position: absolute;
+    width: 100%;
     bottom: 0px;
     right: 50%;
     transform: translate(50%, 0%);
@@ -66,6 +77,12 @@
     opacity: 0.6;
   }
 
+  .portfolio__wrapper-portfolio .coin-description-price-wrapper,
+  .portfolio__wrapper-portfolio .coin-list-price-wrapper {
+    min-width: auto;
+    grid-template-columns: 7rem repeat(3, 6rem) 12rem 2rem;
+  }
+
   .coin-list-price-wrapper,
   .coin-description-price-wrapper {
     min-width: 470px;
@@ -77,6 +94,13 @@
 }
 
 @media only screen and (max-width: 780px) {
+  .savedAddresses__form--close {
+    right: 5%;
+  }
+  .saved-address-form input,
+  .saved-address-form h3 {
+    min-width: 80%;
+  }
   .main-align,
   .login-wrapper {
     max-width: 37rem;
@@ -84,13 +108,31 @@
 }
 
 @media only screen and (max-width: 670px) {
-  .user-profile-menu button,
-  h1 {
-    font-size: calc(var(--font-size-content));
+  .modal-wrapper {
+    margin-inline: auto;
+    max-width: 25rem;
+  }
+  .user-profile-menu button {
+    font-size: 110%;
+  }
+  .user-profile-menu h1 {
+    font-size: 100%;
+  }
+  .saved-addresses-list {
+    width: 100%;
+  }
+  .summary__wrapper {
+    flex-wrap: wrap;
+  }
+  .summary__box {
+    text-align: center;
+    flex-basis: calc(100%);
+    max-width: 30rem;
+    margin-inline: auto;
   }
   .main-align,
   .login-wrapper {
-    max-width: 30rem;
+    max-width: 32rem;
   }
   .page-header-buttons {
     display: none;
@@ -132,6 +174,57 @@
 }
 
 @media only screen and (max-width: 540px) {
+  .modal-wrapper {
+    max-width: 25rem;
+  }
+  .account-details-wrapper {
+    margin-top: 3rem;
+  }
+  .saved-addresses-list {
+    width: 100%;
+    margin-top: 3rem;
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  .component-wrapper {
+    max-width: 22rem;
+    margin-left: 0px;
+    width: 100%;
+  }
+  .user-profile-menu {
+    flex-direction: row;
+    text-align: center;
+    padding-block: 2px;
+    margin-block: 1rem;
+  }
+  .user-profile-menu h1 {
+    display: none;
+  }
+  .user-profile-wrapper .splitter {
+    width: 100%;
+    height: 1px;
+  }
+  .user-profile-menu button.focus::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .user-profile-wrapper {
+    padding-bottom: 4rem;
+  }
+  .user-profile-menu button {
+    text-align: center;
+    width: 65px;
+    font-size: 90%;
+  }
+  .user-profile-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .saved-address-form input,
+  .saved-address-form h3 {
+    min-width: 100%;
+  }
+
   .main-align,
   .login-wrapper {
     max-width: 25rem;
@@ -147,22 +240,151 @@
 }
 
 @media only screen and (max-width: 440px) {
+  .modal-wrapper {
+    max-width: 22rem;
+  }
+  .portfolio__wrapper {
+    margin-block: 1rem;
+  }
   .main-align,
   .login-wrapper {
     max-width: 22rem;
   }
 }
-@media only screen and (max-width: 300px) {
+
+@media only screen and (max-width: 390px) {
+  .footer__wrapper {
+    margin-inline: 1rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .modal-wrapper {
+    width: 100%;
+  }
+  .page-header-search {
+    max-width: 10rem;
+  }
+  .saved-addresses-list {
+    padding-inline: 10px;
+  }
+  .user-profile-menu {
+    gap: 5px;
+  }
+  .footer__title-container {
+    align-items: flex-end;
+  }
+  .footer__title-name {
+    font-size: calc(var(--font-size-content) * 1.7);
+  }
+  .footer__title-img {
+    width: 40px;
+    height: fit-content;
+  }
+  .coin-list-description-wrapper,
+  .coin-description-wrapper {
+    min-width: 11rem;
+  }
+  .coin-list-container {
+    margin-top: 0px;
+  }
+  .coin-list-price-wrapper,
+  .coin-description-price-wrapper {
+    min-width: 300px;
+  }
+  .coin-description *,
+  .watchlist,
+  .coin-list-container {
+    font-size: calc(var(--font-size-content) * 0.7);
+  }
+  .portfolio__actions {
+    width: 100%;
+  }
+  .portfolio__actions-button,
+  .portfolio__actions-title {
+    width: 100%;
+  }
+  .portfolio__actions-button,
+  .portfolio__actions-title {
+    font-size: calc((var(--font-size-content)) * 1);
+  }
+  .component-wrapper {
+    max-width: 20rem;
+  }
   .page-header-title {
-    font-size: 1.7em;
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .portfolio__wrapper-portfolio .coin-description-price-wrapper,
+  .portfolio__wrapper-portfolio .coin-list-price-wrapper {
+    min-width: auto;
+    grid-template-columns: 5rem repeat(3, 3rem) 12rem 2rem;
+  }
+  .page-header-title {
+    font-size: 1.4em;
   }
   .login-wrapper {
     margin-bottom: 0px;
   }
 }
 
-@media only screen and (max-height: 800px) {
-  .user-profile-wrapper {
-    min-height: 350px;
+@media only screen and (max-height: 750px) {
+  .savedAddresses__form-title {
+    margin-block: 0px;
+    margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-height: 650px) {
+  .modal-wrapper.darkTheme {
+    margin-top: 5rem;
+  }
+}
+@media only screen and (max-height: 550px) {
+  .modal-wrapper.darkTheme {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-height: 500px) {
+  .modal-wrapper.darkTheme {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    height: 100%;
+    min-width: 100%;
+    box-shadow: none;
+  }
+  .holdings__modal {
+    min-width: 100%;
+  }
+}
+@media only screen and (max-height: 420px) {
+  .modal-close.darkTheme {
+    margin-bottom: 0;
+  }
+  .modal-actions.fr {
+    margin-top: 10px;
+  }
+  .modal-content form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-height: 350px) {
+  .modal-content form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-height: 320px) {
+  .modal-content.fc {
+    padding-top: 10px;
   }
 }
