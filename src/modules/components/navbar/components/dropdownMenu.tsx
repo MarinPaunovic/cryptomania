@@ -10,33 +10,43 @@ export const DropdownMenu: React.FC<Props> = ({ menuToggle, setMenuToggle }) => 
   const isAuth = useSelector((state: RootState) => state.auth.auth);
 
   return (
-    <div
-      className={`dropdown-menu ${menuToggle} ${theme}`}
-      style={menuToggle == 'open' ? { right: '0px' } : { right: '-215px' }}
-    >
+    <div className={`dropdown-menu ${menuToggle} ${theme} ffam-content`}>
       <HamburgerIcon theme={theme} menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
       {!isAuth.uid && (
         <>
           <Link
-            className="hamburger-element"
+            className={`dropdown__link ${theme}`}
             to={'/login'}
             style={theme === 'darkTheme' ? { color: 'whitesmoke' } : { color: 'black' }}
           >
-            login
+            Login
           </Link>
           <Link
-            className="hamburger-element"
+            className={`dropdown__link ${theme}`}
             to={'/register'}
             style={theme === 'darkTheme' ? { color: 'whitesmoke' } : { color: 'black' }}
           >
-            register
+            Register
           </Link>
         </>
       )}
       {isAuth.uid && (
-        <span className="hamburger-element" onClick={() => signOut(auth)}>
-          Logout
-        </span>
+        <>
+          <Link to={'/user-profile'} className={`dropdown__link ${theme}`}>
+            My profile
+          </Link>
+          <Link to={'/portfolio'} className={`dropdown__link ${theme}`}>
+            Portfolio
+          </Link>
+          <button
+            className={`dropdown__button ${theme}`}
+            onClick={() => {
+              signOut(auth);
+            }}
+          >
+            Logout
+          </button>
+        </>
       )}
     </div>
   );
