@@ -11,9 +11,11 @@ import { PrivateRoute } from 'modules/router/privateRoute';
 import UserProfilePage from 'pages/userProfile';
 import { PublicRoute } from 'modules/router/publicRoute';
 import { PortfolioPage } from 'pages/portfolioPage';
+import { useResetPageHeight } from 'shared';
 
 function App() {
   const dispatch = useDispatch();
+  useResetPageHeight();
 
   useEffect(() => {
     const authSub = onAuthStateChanged(auth, (user) => {
