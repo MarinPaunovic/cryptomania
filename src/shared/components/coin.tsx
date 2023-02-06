@@ -81,7 +81,7 @@ export const Coin: React.FC<CoinProps> = ({ item }) => {
         )}
         {active === 'portfolio' && (
           <button
-            className={`portfolio__wrapper-add f asc jsc ${theme}`}
+            className={`portfolio__wrapper-add f asc jsfe ${theme}`}
             onClick={() => setIsOpen(true)}
           >
             <FontAwesomeIcon icon={faPlus} />
