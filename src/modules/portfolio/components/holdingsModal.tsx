@@ -8,6 +8,8 @@ import { useActionHandler } from '../hooks/useActionHandler';
 import { SellHoldings } from './sellHoldings';
 import { HoldingsProps } from '../types';
 import { ModalProps } from 'shared/types';
+import { useSelector } from 'react-redux';
+import { RootState } from 'modules/redux/rootReducer';
 
 interface HoldingsModalProps {
   what: string;
@@ -19,6 +21,7 @@ interface HoldingsModalProps {
 export const HoldingsModal: React.FC<HoldingsModalProps> = ({ isOpen, setIsOpen, what, price }) => {
   const [isBuy, setIsBuy] = useState(true);
   const { onClose, onConfirm, setAmount } = useActionHandler(isBuy);
+  const { theme } = useSelector((state: RootState) => state.theme);
   const tag = useTags(what);
   const { isZero } = useIsZero({ what, tag });
   useScrollToggle(isOpen, 'portfolio');
@@ -46,12 +49,28 @@ export const HoldingsModal: React.FC<HoldingsModalProps> = ({ isOpen, setIsOpen,
   return (
     <Modal {...modalProps} buttonPositive={isBuy ? 'Add' : 'Sell'}>
       <>
-        <div className="modal-holdings-actions fr asc">
-          <button onClick={() => setIsBuy(true)}>Buy</button>
-          <button onClick={() => setIsBuy(false)} disabled={isZero}>
+        <div className="holdings__modal main-align fr asc">
+          <button
+            onClick={() => setIsBuy(true)}
+            className={
+              isBuy
+                ? `holdings__modal-button holdings__modal-button--active theme ${theme}`
+                : `holdings__modal-button ${theme}`
+            }
+          >
+            Buy
+          </button>
+          <button
+            onClick={() => setIsBuy(false)}
+            disabled={isZero}
+            className={
+              !isBuy
+                ? `holdings__modal-button holdings__modal-button--active ${theme}`
+                : `holdings__modal-button ${theme}`
+            }
+          >
             Sell
           </button>
-          <span>{what}</span>
         </div>
         {isBuy ? <BuyHoldings {...holdingsProps} /> : <SellHoldings {...holdingsProps} />}
       </>
