@@ -9,7 +9,7 @@ import { SavedAddress } from './savedAddress';
 import { usePortfolioCleanup } from 'shared/hooks/usePortfolioCleanup';
 
 export const UserProfile = () => {
-  const [whatComponent, setWhatComponent] = useState<JSX.Element | null>(<AccountDetails />);
+  const [whatComponent, setWhatComponent] = useState<JSX.Element>(<AccountDetails />);
   const { theme } = useSelector((state: RootState) => state.theme);
   const authS = useSelector((state: RootState) => state.auth.auth);
   usePortfolioCleanup();
@@ -42,7 +42,11 @@ export const UserProfile = () => {
             </button>
             <button
               onClick={() => setWhatComponent(<Watchlist />)}
-              className={whatComponent == null ? `focus ${theme}` : `${theme}`}
+              className={
+                whatComponent && whatComponent.type.name === 'Watchlist'
+                  ? `focus ${theme}`
+                  : `${theme}`
+              }
             >
               Watchlist
             </button>
