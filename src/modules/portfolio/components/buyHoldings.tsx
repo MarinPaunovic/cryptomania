@@ -1,3 +1,5 @@
+import { RootState } from 'modules/redux/rootReducer';
+import { useSelector } from 'react-redux';
 import { HoldingsProps } from '../types';
 
 export const BuyHoldings: React.FC<HoldingsProps> = ({
@@ -7,18 +9,24 @@ export const BuyHoldings: React.FC<HoldingsProps> = ({
   onConfirm,
   tag,
 }) => {
+  const { theme } = useSelector((state: RootState) => state.theme);
+
   return (
     <form onSubmit={handleSubmit(onConfirm)}>
       <div className="modal-price">
-        <label htmlFor="price">Price per coin</label>
-        <input id="price" defaultValue={price} className="price-input" />
+        <label htmlFor="price" className="modal__title ffam-content">
+          Price per coin
+        </label>
+        <input id="price" defaultValue={price} className={`price-input ${theme}`} />
       </div>
       <div className="modal-amount">
-        <label htmlFor="amount">Amount</label>
+        <label htmlFor="amount" className="modal__title ffam-content">
+          Amount
+        </label>
         <div className="amount-input-wrapper">
           <input
             id="amount"
-            className="amount-input"
+            className={`amount-input ${theme}`}
             type="number"
             step={0.001}
             autoComplete="off"
