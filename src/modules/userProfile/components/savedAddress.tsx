@@ -9,10 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faX } from '@fortawesome/free-solid-svg-icons';
 import { SavedAddressActions } from './savedAddressActions';
 import { useSearchAddress } from '../hooks/useSearchAddress';
+import { useSelector } from 'react-redux';
+import { RootState } from 'modules/redux/rootReducer';
 
 export const SavedAddress = () => {
   const [isForm, setIsForm] = useState(false);
   const { searchAddresses, handleSearch, isSearch } = useSearchAddress();
+  const { theme } = useSelector((state: RootState) => state.theme);
   const { list, isDelete, setIsDelete } = useSavedAddresses();
   const form = useForm<SavedAddressesForm>();
   const { handleSubmit, reset, register, getValues } = form;
@@ -47,6 +50,7 @@ export const SavedAddress = () => {
                 },
               })}
             ></input>
+
             {isSearch && (
               <button
                 className="saved-addresses-search-action"
@@ -94,19 +98,33 @@ export const SavedAddress = () => {
         )}
       </div>
       {isForm && (
-        <FormProvider {...form}>
-          <form onSubmit={handleSubmit(setAddAddress)} className="saved-address-form fc">
-            <div className="fc">
-              <h3>Name</h3>
-              <Input name="name" />
-            </div>
-            <div className="fc">
-              <h3>Adress</h3>
-              <Input name="address" />
-            </div>
-            <button type="submit">Save</button>
-          </form>
-        </FormProvider>
+        <div className="savedAddresses__form-wrapper">
+          <FormProvider {...form}>
+            <button
+              className={`savedAddresses__form--close ${theme}`}
+              onClick={() => {
+                setIsForm(!isForm);
+              }}
+            >
+              <FontAwesomeIcon icon={faX} />
+            </button>
+            <form
+              onSubmit={handleSubmit(setAddAddress)}
+              className={`saved-address-form fc ${theme}`}
+            >
+              <h1 className="savedAddresses__form-title">Save address</h1>
+              <div className="savedAddresses__form-input fc">
+                <h3>Name</h3>
+                <Input name="name" />
+              </div>
+              <div className="savedAddresses__form-input fc">
+                <h3>Adress</h3>
+                <Input name="address" />
+              </div>
+              <button type="submit">Save</button>
+            </form>
+          </FormProvider>
+        </div>
       )}
     </div>
   );
