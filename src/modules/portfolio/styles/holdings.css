@@ -1,6 +1,7 @@
 .amount-input-wrapper {
   position: relative;
 }
+
 .price-input,
 .amount-input {
   border-radius: 7px;
@@ -15,6 +16,7 @@
   -moz-appearance: textfield;
   padding-right: 65px;
 }
+
 .amount-input::-webkit-outer-spin-button,
 .amount-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -22,6 +24,8 @@
 }
 
 .amount-what {
+  display: flex;
+  align-items: stretch;
   line-height: 20px;
   font-size: 21px;
   position: absolute;
@@ -32,4 +36,32 @@
   color: rgba(31, 41, 55, 1);
   font-family: 'Open Sans';
   font-weight: 500;
+  gap: 0.3rem;
+}
+
+.modal-content .amount-what button {
+  background-color: var(--color-cryptomania);
+  border: none;
+  height: 100%;
+  padding-inline: 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.modal-price {
+  margin-bottom: 1rem;
+}
+
+.amount-input-wrapper,
+.price-input {
+  margin-top: 0.5rem;
+}
+
+.amount-input.lightTheme,
+.price-input.lightTheme {
+  background-color: rgb(235, 235, 235);
+}
+.amount-input.darkTheme,
+.price-input.darkTheme {
+  background-color: #fff;
+  color: #000000;
 }
