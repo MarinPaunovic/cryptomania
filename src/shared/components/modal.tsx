@@ -20,7 +20,7 @@ export const Modal: React.FC<ModalWrapper> = ({
   if (!isOpen) return null;
 
   return ReactDom.createPortal(
-    <div className={`modal-overlay ${theme}`}>
+    <div className={`modal-overlay f ${theme}`}>
       <div className={`modal-wrapper ${theme}`} ref={ref}>
         <div className={`modal-content fc`}>
           <button className={`modal-close f ${theme}`} onClick={onClose}>
