@@ -5,3 +5,4 @@ export * from './useFavorites';
 export * from './useCoinList';
 export * from './useCurrencyConvert';
 export * from './useGetFavorites';
+export * from './useResetPageHeight';
