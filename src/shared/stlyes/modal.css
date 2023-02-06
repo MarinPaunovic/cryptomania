@@ -1,6 +1,10 @@
 .modal-overlay {
   z-index: 1000;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
@@ -9,26 +13,20 @@
 }
 
 .modal-wrapper {
-  width: 35rem;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 7rem;
   z-index: 1000;
-  position: fixed;
-  left: 50%;
-  top: 20%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 30rem;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 5px var(--color-cryptomania);
-}
-.modal-wrapper .darkTheme {
-  background-color: rgb(var(--background-color-dark));
-}
-.modal-wrapper .lightTheme {
-  background-color: rgb(var(--background-color-light));
 }
 
 .modal-content {
   padding-inline: 15px;
   padding-block: 35px;
-  width: 95%;
+  width: 90%;
   margin-inline: auto;
 }
 
@@ -37,27 +35,35 @@
   color: rgb(95, 95, 95);
   font-size: calc(var(--font-size-content) * 1.6);
   font-family: var(--font-family-content);
+  margin-bottom: 0.5rem;
 }
-.modal-content .lightTheme {
-  color: rgb(95, 95, 95);
-}
-.modal-content .darkTheme {
-  color: #fff;
-  background-color: transparent;
+.modal-content p {
+  font-size: 90%;
 }
 .modal-content p.darkTheme {
-  filter: brightness(80%);
+  color: rgb(215, 215, 215);
+}
+.modal-content h4.darkTheme {
+  color: #fff;
+}
+
+.modal-content p.lightTheme {
+  color: rgb(90, 90, 90);
+}
+.modal-content h4.lightTheme {
+  color: #000;
 }
 
 .modal-actions {
   margin-top: 30px;
+  gap: 10px;
+  width: 100%;
   justify-content: space-between;
 }
 
 .modal-actions button {
   font-size: calc(var(--font-size-button) * 1.25);
   padding-block: 15px;
-  padding-inline: 100px;
   border-radius: 5px;
 }
 
@@ -65,8 +71,10 @@
   position: relative;
   color: rgb(255, 255, 255);
   background-color: transparent;
+  width: 50%;
   border: none;
 }
+
 .modal-actions .yes::before {
   content: '';
   position: absolute;
@@ -82,21 +90,22 @@
 .modal-actions .yes:hover {
   cursor: pointer;
 }
+
 .modal-actions .yes:hover::before {
   filter: brightness(85%);
 }
+
 .modal-actions .no {
+  width: 50%;
   background-color: var(--background-color-light);
   border: 1px rgb(212, 212, 212) solid;
-}
-.modal-actions .no.darkTheme {
-  color: #fff;
 }
 
 .modal-actions .no:hover {
   cursor: pointer;
   border-color: var(--color-cryptomania);
 }
+
 .modal-close {
   align-self: flex-start;
   border: none;
@@ -105,15 +114,7 @@
   padding: 5px;
   font-size: var(--font-family-content);
 }
+
 .modal-close:hover {
   cursor: pointer;
-}
-.modal-close.darkTheme:hover {
-  filter: brightness(70%);
-}
-.modal-close.lightTheme {
-  color: rgb(114, 114, 114);
-}
-.modal-close.lightTheme:hover {
-  color: rgb(46, 46, 46);
 }
