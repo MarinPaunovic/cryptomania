@@ -5,9 +5,10 @@
 .portfolio__wrapper {
   min-height: calc(100vh - 70px - 200px);
   width: 100%;
+  padding-bottom: 3rem;
 }
 .portfolio--active {
-  grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr 0.8fr 0.2fr;
+  grid-template-columns: 1.5fr repeat(3, 0.5fr) 12rem 0.2fr;
 }
 
 .portfolio__wrapper-add,
@@ -54,7 +55,6 @@
   border: none;
   font-size: calc(var(--font-size-button) * 1.5);
 }
-
 .portfolio__actions-button:hover {
   cursor: pointer;
 }
@@ -79,5 +79,22 @@
 }
 
 .portfolio__actions-title--active {
+  color: var(--color-cryptomania);
+}
+
+.portfolio-amount {
+  width: 100%;
+  text-align: end;
+}
+.portfolio-amount ol {
+  align-items: flex-end;
+}
+
+.portfolio__favorites--empty {
+  text-align: center;
+  margin-block: 5rem;
+}
+
+.portfolio__favorites-link {
   color: var(--color-cryptomania);
 }
